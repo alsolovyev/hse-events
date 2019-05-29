@@ -32,7 +32,7 @@ yarn run lint
 ```
 
 ## Authors
-* **Aleksey Solovyev** - *Initial work* - [alSolovyev](https://github.com/alsolovyev)
+* **[Aleksey Solovyev](https://github.com/alsolovyev)** - *Design, initial work* - [solovyev.a@icloud.com](mailto:solovyev.a@icloud.com)
 
 ## License
 This project is licensed under the [MIT](./LICENSE) License
