@@ -11,10 +11,14 @@
 </template>
 
 <script>
+import sayHello from '@/utils/sayHello'
 import AppBackground from '@/components/AppBackground'
 
 export default {
   name: 'app',
+  mounted() {
+    sayHello()
+  },
   components: { AppBackground }
 }
 </script>
