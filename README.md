@@ -6,6 +6,31 @@ Web application for attendees of events organized by the [Higher School of Econo
 
 [![HSE Events](https://capella.pics/e90af62d-19a6-4bd6-813f-f563ecc123bb.jpg)](https://dev.hes.website/)
 
+## Project setup
+```
+yarn install
+```
+
+##### Compiles and hot-reloads for development
+```
+yarn run serve
+```
+
+##### Compiles and minifies for production
+```
+yarn run build
+```
+
+##### Run your tests
+```
+yarn run test
+```
+
+##### Lints and fixes files
+```
+yarn run lint
+```
+
 ## Authors
 * **Aleksey Solovyev** - *Initial work* - [alSolovyev](https://github.com/alsolovyev)
 
