@@ -1,5 +1,9 @@
 <template>
   <div id="hes-events">
+    <!-- begin Page -->
+    <router-view/>
+    <!-- end Page -->
+
     <!-- begin Background -->
     <app-background/>
     <!-- end Background -->
