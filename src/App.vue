@@ -1,12 +1,18 @@
 <template>
-  <div id="hes-events">
-    <!-- begin Page -->
-    <router-view/>
-    <!-- end Page -->
+  <div class="hes-events" id="hes-events">
+    <!-- BEGIN Header -->
+    <!-- END Header -->
 
-    <!-- begin Background -->
+    <!-- BEGIN Page -->
+    <router-view/>
+    <!-- END Page -->
+
+    <!-- BEGIN Footer -->
+    <!-- END Footer -->
+
+    <!-- BEGIN Background -->
     <app-background/>
-    <!-- end Background -->
+    <!-- END Background -->
   </div>
 </template>
 
@@ -23,4 +29,12 @@ export default {
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.hes-events
+  display: flex
+  flex-direction: column
+  height: 0 // fix vertical stretch in IE
+  min-height: 100vh
+  padding: #{$padding * 3}
+  +check
+</style>
