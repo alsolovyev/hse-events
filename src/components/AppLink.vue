@@ -51,6 +51,9 @@ $link-transition: transform .3s
   &--pink
     color: $pink
 
+  &--lime
+    color: $lime
+
   &::after
     content: attr(data-name)
     position: absolute
