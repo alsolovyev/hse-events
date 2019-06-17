@@ -42,8 +42,7 @@ export default {
     return {
       links: [
         { name: 'Home', to: { name: 'home' }, reqAuth: false },
-        { name: 'Auth', to: { name: 'home' }, reqAuth: false },
-        { name: 'Polls', to: { name: 'home' }, reqAuth: false }
+        { name: 'Auth', to: { name: 'auth' }, reqAuth: false }
       ]
     }
   },
