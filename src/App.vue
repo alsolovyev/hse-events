@@ -9,6 +9,7 @@
     <!-- END Page -->
 
     <!-- BEGIN Footer -->
+    <app-footer/>
     <!-- END Footer -->
 
     <!-- BEGIN Background -->
@@ -21,13 +22,14 @@
 import sayHello from '@/utils/sayHello'
 import AppBackground from '@/components/AppBackground'
 import AppHeader from '@/components/AppHeader'
+import AppFooter from '@/components/AppFooter'
 
 export default {
   name: 'app',
   mounted() {
     sayHello()
   },
-  components: { AppBackground, AppHeader }
+  components: { AppBackground, AppHeader, AppFooter }
 }
 </script>
 
