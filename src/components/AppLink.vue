@@ -1,7 +1,4 @@
 <template>
-  <a class="link" v-if="external" :href="url">
-    <span class="link__name" :data-name="name">{{ name }}</span>
-  </a>
   <router-link class="link" v-else :to="to">
     <span class="link__name" :data-name="name">{{ name }}</span>
   </router-link>
@@ -15,14 +12,6 @@ export default {
       type: String,
       default: 'Link'
     },
-    external: {
-      type: Boolean,
-      default: false
-    },
-    url: {
-      type: String,
-      default: 'http://google.com'
-    },
     to: {
       type: Object,
       default: () => { return { name: 'Home' } }
@@ -33,8 +22,8 @@ export default {
 
 <style lang="sass">
 .link
+  display: inline-block
   overflow: hidden
-  +check
 
   &--blue
     .link__name::after
