@@ -14,8 +14,8 @@ import NotFound from '@/pages/NotFound'
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', name: 'home', component: Home, meta: { theme: 'blue' } },
-    { path: '/auth', name: 'auth', component: Auth, meta: { theme: 'pink' } },
+    { path: '/', name: 'home', component: Home, meta: { theme: 'pink' } },
+    { path: '/auth', name: 'auth', component: Auth, meta: { theme: 'blue' } },
     { path: '/events', name: 'events', component: Events, meta: { theme: 'lime' } },
     { path: '*', name: '404', component: NotFound, meta: { theme: 'blue' } }
   ]
