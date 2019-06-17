@@ -1,10 +1,15 @@
 <template>
-  <router-link class="link" :to="to" :class="{ 'link--colorized':colorized }">
-    <span class="link__name" :data-name="name">{{ name }}</span>
+  <router-link class="link" :class="{ 'link--colorized':colorized }"
+    :to="to"
+    :data-name="name">
+    <span class="link__name">{{ name }}</span>
   </router-link>
 </template>
 
 <script>
+/**
+ * ToDo: add a class based on the theme color
+ */
 export default {
   name: 'AppLink',
   props: {
@@ -25,8 +30,11 @@ export default {
 </script>
 
 <style lang="sass">
+$link-transition: transform .3s
+
 .link
   display: inline-block
+  position: relative
   overflow: hidden
 
   &--colorized
@@ -35,31 +43,28 @@ export default {
 
   &--blue
     color: $blue
-    .link__name::after
-      color: $blue
 
   &--pink
     color: $pink
-    .link__name::after
-      color: $pink
+
+  &::after
+    content: attr(data-name)
+    position: absolute
+    top: 100%
+    left: 0
+    +fix-blurry
+    transition: $link-transition
 
   &__name
-    position: relative
     display: inline-block
-    transition: transform .3s
     color: $black
     +fix-blurry
-
-    &::after
-      content: attr(data-name)
-      position: absolute
-      top: 100%
-      left: 0
-      transform: translateZ(0)
-      color: currentColor
-      +fix-blurry
+    transition: $link-transition
 
   &:hover
+    &::after
+      transform: translate3d(0, -100%, 0)
     .link__name
       transform: translate3d(0, -100%, 0)
+
 </style>
