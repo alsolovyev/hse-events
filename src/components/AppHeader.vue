@@ -23,7 +23,8 @@
     <nav class="nav">
       <ul>
         <li class="nav__item"
-          v-for="(link, index) in sortedLinks">
+          v-for="(link, index) in sortedLinks"
+          :key="index">
           <app-link :name="link.name" :to="link.to"/>
         </li>
       </ul>
