@@ -65,7 +65,7 @@ $link-transition: transform .3s
     +fix-blurry
     transition: $link-transition
 
-  &.router-link-active,
+  &.router-link-exact-active,
   &:hover
     &::after
       transform: translate3d(0, -100%, 0)
