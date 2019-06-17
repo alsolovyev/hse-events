@@ -21,7 +21,7 @@ export default {
       links: [
         { name: 'Sign up', reqAuth: false, to: { name: 'auth' }, description: 'Create a HES Events account'},
         { name: 'Sign in', reqAuth: false, to: { name: 'auth' }, description: 'Already have an account?'},
-        { name: 'Polls',   reqAuth: false, to: { name: 'auth' }, description: 'Learn more about ongoing events'}
+        { name: 'Events',   reqAuth: false, to: { name: 'events' }, description: 'Learn more about ongoing events'}
       ]
     }
   },
