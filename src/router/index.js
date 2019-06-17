@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,8 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  /** Change app theme*/
+  store.commit('SET_THEME', to.meta.theme)
   next()
 })
 
