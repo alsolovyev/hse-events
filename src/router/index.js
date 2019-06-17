@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
 
 Vue.use(VueRouter)
 
@@ -10,11 +11,13 @@ import Home from '@/pages/Home'
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', name: 'home',  component: Home, meta: {  } }
+    { path: '/', name: 'home',  component: Home, meta: { theme: 'pink' } }
   ]
 })
 
 router.beforeEach((to, from, next) => {
+  /** Change app theme*/
+  store.commit('SET_THEME', to.meta.theme)
   next()
 })
 
