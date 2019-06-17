@@ -1,6 +1,7 @@
 <template>
   <div class="hes-events" id="hes-events">
     <!-- BEGIN Header -->
+    <app-header/>
     <!-- END Header -->
 
     <!-- BEGIN Page -->
@@ -8,6 +9,7 @@
     <!-- END Page -->
 
     <!-- BEGIN Footer -->
+    <app-footer/>
     <!-- END Footer -->
 
     <!-- BEGIN Background -->
@@ -19,13 +21,15 @@
 <script>
 import sayHello from '@/utils/sayHello'
 import AppBackground from '@/components/AppBackground'
+import AppHeader from '@/components/AppHeader'
+import AppFooter from '@/components/AppFooter'
 
 export default {
   name: 'app',
   mounted() {
     sayHello()
   },
-  components: { AppBackground }
+  components: { AppBackground, AppHeader, AppFooter }
 }
 </script>
 
