@@ -16,7 +16,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', name: 'home', component: Home, meta: { theme: 'blue' } },
     { path: '/auth', name: 'auth', component: Auth, meta: { theme: 'pink' } },
-    { path: '/events', name: 'events', component: Events, meta: { theme: 'pink' } },
+    { path: '/events', name: 'events', component: Events, meta: { theme: 'lime' } },
     { path: '*', name: '404', component: NotFound, meta: { theme: 'blue' } }
   ]
 })
