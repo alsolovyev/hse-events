@@ -6,13 +6,32 @@
       <h1 class="hero__title"><span>HSE Events</span></h1>
       <p class="hero__descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ut, hic inventore alias porro repudiandae, laudantium praesentium in sit labore, magnam perspiciatis omnis ea voluptatum rem similique debitis minus unde!</p>
       <div class="hero__bg">HSE Events</div>
+      <flex-grid :items="sortedLinks"/>
     </div>
   </main>
 </template>
 
 <script>
+import FlexGrid from '@/components/FlexGrid'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  data() {
+    return {
+      links: [
+        { name: 'Sign up', reqAuth: false, to: { name: 'home' }, description: 'Create a HES Events account'},
+        { name: 'Sign in', reqAuth: false, to: { name: 'lasd' }, description: 'Already have an account?'},
+        { name: 'Polls',   reqAuth: false, to: { name: 'home' }, description: 'Learn more about ongoing events'}
+      ]
+    }
+  },
+  computed: {
+    /**
+     * Sort the list depending on the authorization status of the user
+     */
+    sortedLinks: function() { return this.links.filter(link => link) }
+  },
+  components: { FlexGrid }
 }
 </script>
 
@@ -47,7 +66,7 @@ export default {
     right: #{-$padding}
     background-image: $linear-gradient, $linear-gradient
     background-position: 100% 0, 100% $padding
-    background-size: 100.8% $padding, $padding 100%
+    background-size: 102.8% $padding, $padding 100%
     background-repeat: repeat-x, no-repeat
 
   &__line
