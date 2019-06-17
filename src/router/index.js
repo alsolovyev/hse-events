@@ -5,12 +5,14 @@ Vue.use(VueRouter)
 
 // begin Pages
 import Home from '@/pages/Home'
+import NotFound from '@/pages/NotFound'
 // end Pages
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', name: 'home',  component: Home, meta: {  } }
+    { path: '/', name: 'home', component: Home, meta: { theme: 'pink' } },
+    { path: '*', name: '404', component: NotFound, meta: { theme: 'blue' } }
   ]
 })
 
