@@ -14,7 +14,7 @@ export default {
     },
     to: {
       type: Object,
-      default: () => { return { name: 'Home' } }
+      default: () => { return { name: 'home' } }
     }
   }
 }
