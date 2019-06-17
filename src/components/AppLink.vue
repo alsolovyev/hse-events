@@ -1,5 +1,5 @@
 <template>
-  <router-link class="link" v-else :to="to">
+  <router-link class="link" :to="to" :class="{ 'link--colorized':colorized }">
     <span class="link__name" :data-name="name">{{ name }}</span>
   </router-link>
 </template>
@@ -15,6 +15,10 @@ export default {
     to: {
       type: Object,
       default: () => { return { name: 'home' } }
+    },
+    colorized: {
+      type: Boolean,
+      default: false
     }
   }
 }
@@ -25,11 +29,17 @@ export default {
   display: inline-block
   overflow: hidden
 
+  &--colorized
+    .link__name
+      color: currentColor
+
   &--blue
+    color: $blue
     .link__name::after
       color: $blue
 
   &--pink
+    color: $pink
     .link__name::after
       color: $pink
 
@@ -37,6 +47,7 @@ export default {
     position: relative
     display: inline-block
     transition: transform .3s
+    color: $black
     +fix-blurry
 
     &::after
@@ -45,6 +56,7 @@ export default {
       top: 100%
       left: 0
       transform: translateZ(0)
+      color: currentColor
       +fix-blurry
 
   &:hover
