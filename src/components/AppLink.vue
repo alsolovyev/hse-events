@@ -1,5 +1,6 @@
 <template>
-  <router-link class="link" :class="{ 'link--colorized':colorized }"
+  <router-link class="link"
+    :class="[{'link--colorized': colorized}, `link--${theme}`  ]"
     :to="to"
     :data-name="name">
     <span class="link__name">{{ name }}</span>
@@ -12,6 +13,9 @@
  */
 export default {
   name: 'AppLink',
+  computed: {
+    theme: function() { return this.$store.getters.getTheme }
+  },
   props: {
     name: {
       type: String,
@@ -61,6 +65,7 @@ $link-transition: transform .3s
     +fix-blurry
     transition: $link-transition
 
+  &.router-link-active,
   &:hover
     &::after
       transform: translate3d(0, -100%, 0)
