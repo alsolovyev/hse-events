@@ -5,6 +5,17 @@ module.exports = {
   // specify sub-path
   // publicPath: process.env.NODE_ENV === 'production' ? '/assets/' : '/',
 
+  // Import svg files inline
+  chainWebpack: (config) => {
+    const svgRule = config.module.rule('svg');
+
+    svgRule.uses.clear();
+
+    svgRule
+      .use('vue-svg-loader')
+      .loader('vue-svg-loader');
+  },
+
   // import sass globally
-  css: { loaderOptions: { sass: { data: '@import "~@/assets/sass/app"' } } },
+  css: { loaderOptions: { sass: { data: '@import "~@/assets/sass/app"' } } }
 }
