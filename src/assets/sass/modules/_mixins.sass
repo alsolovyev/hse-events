@@ -34,3 +34,17 @@
 
 =check($opacity: .1)
   background-color: rgba(royalblue, $opacity)
+
+=hide-text
+  font: 0/0 a
+  text-shadow: none
+  color: transparent
+
+=hidetext
+  +hide-text
+
+=clr
+  &:after
+    content: " "
+    display: table
+    clear: both
