@@ -17,7 +17,7 @@
     <!-- END Background -->
 
     <!-- BEGIN Modal -->
-    <app-modal/>
+    <app-modal v-if="this.$store.getters.isModalOpen"/>
     <!-- END Modal -->
   </div>
 </template>
