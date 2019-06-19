@@ -4,7 +4,7 @@
       <span class="hero__line"></span>
       <h2 class="hero__subtitle"><span>now about business</span></h2>
       <h1 class="hero__title"><span>HSE Events</span></h1>
-      <p class="hero__descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ut, hic inventore alias porro repudiandae, laudantium praesentium in sit labore, magnam perspiciatis omnis ea voluptatum rem similique debitis minus unde!</p>
+      <p class="hero__descr">HES Events Forum is the leading venue to discuss topical issues of the industry. During the Forum industry leaders make their decisions that provide direct impact on formation of the global gas market</p>
       <div class="hero__bg">HSE Events</div>
       <flex-grid :items="sortedLinks"/>
     </div>
