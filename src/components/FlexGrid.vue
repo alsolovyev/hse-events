@@ -3,6 +3,7 @@
     <li class="cell"
       v-for="(item, index) in items.slice(0, 3)"
       :key="index"
+      ref="cell"
       :data-index="`0${index + 1}`">
 
       <span class="cell__line"></span>
