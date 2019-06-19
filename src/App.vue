@@ -15,6 +15,10 @@
     <!-- BEGIN Background -->
     <app-background/>
     <!-- END Background -->
+
+    <!-- BEGIN Modal -->
+    <app-modal v-if="this.$store.getters.isModalOpen"/>
+    <!-- END Modal -->
   </div>
 </template>
 
@@ -23,13 +27,14 @@ import sayHello from '@/utils/sayHello'
 import AppBackground from '@/components/AppBackground'
 import AppHeader from '@/components/AppHeader'
 import AppFooter from '@/components/AppFooter'
+import AppModal from '@/components/AppModal'
 
 export default {
   name: 'app',
   mounted() {
     sayHello()
   },
-  components: { AppBackground, AppHeader, AppFooter }
+  components: { AppBackground, AppHeader, AppFooter, AppModal }
 }
 </script>
 

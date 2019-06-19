@@ -24,9 +24,7 @@ export default {
     /**
      * Open modal window with information about mobile application
      */
-    openModal(os) {
-      console.log(`Open modal: ${os}`)
-    }
+    openModal() { this.$store.commit('TOGGLE_MODAL', true) }
   },
   components: { IconApple, IconAndroid }
 }
