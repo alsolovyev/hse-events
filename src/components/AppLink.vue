@@ -1,9 +1,13 @@
 <template>
   <router-link class="link"
-    :class="[{'link--colorized': colorized}, `link--${theme}`  ]"
+    :class="classes"
     :to="to"
     :data-name="name">
-    <span class="link__name">{{ name }}</span>
+    <!-- BEGIN Label -->
+    <span class="link__name"
+      :data-name="name"
+      :class="`link__name--${this.$store.getters.getTheme}`">{{ name }}</span>
+    <!-- END Label -->
   </router-link>
 </template>
 
@@ -25,54 +29,12 @@ export default {
       type: Object,
       default: () => { return { name: 'home' } }
     },
-    colorized: {
-      type: Boolean,
-      default: false
+    classes: {
+      type: String,
+      default: ''
     }
   }
 }
 </script>
 
-<style lang="sass">
-$link-transition: transform .3s
-
-.link
-  display: inline-block
-  position: relative
-  overflow: hidden
-
-  &--colorized
-    .link__name
-      color: currentColor
-
-  &--blue
-    color: $blue
-
-  &--pink
-    color: $pink
-
-  &--lime
-    color: $lime
-
-  &::after
-    content: attr(data-name)
-    position: absolute
-    top: 100%
-    left: 0
-    +fix-blurry
-    transition: $link-transition
-
-  &__name
-    display: inline-block
-    color: $black
-    +fix-blurry
-    transition: $link-transition
-
-  &.router-link-exact-active,
-  &:hover
-    &::after
-      transform: translate3d(0, -100%, 0)
-    .link__name
-      transform: translate3d(0, -100%, 0)
-
-</style>
+<style lang="sass">/* @/assets/sass/components/_link.sass */</style>
