@@ -8,7 +8,7 @@
       <span class="cell__line"></span>
       <p class="cell__text">{{ item.description || 'Add description field' }}</p>
       <app-link
-        :colorized="true"
+        classes="pink"
         :to="item.to || { name: 'home' } "
         :name="item.name || 'Add name field '"/>
     </li>
