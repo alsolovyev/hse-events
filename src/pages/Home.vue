@@ -1,17 +1,18 @@
 <template>
   <main class="main main--centered">
     <div class="hero">
-      <span class="hero__line"></span>
-      <h2 class="hero__subtitle"><span>now about business</span></h2>
-      <h1 class="hero__title"><span>HSE Events</span></h1>
-      <p class="hero__descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ut, hic inventore alias porro repudiandae, laudantium praesentium in sit labore, magnam perspiciatis omnis ea voluptatum rem similique debitis minus unde!</p>
+      <span class="hero__line" ref="line"></span>
+      <p class="hero__subtitle"><span class="r-text" ref="subtitle">now about business</span></p>
+      <h1 class="hero__title"><span class="r-text" ref="title">HSE Events</span></h1>
+      <p class="hero__descr" ref="desc">HES Events Forum is the leading venue to discuss topical issues of the industry. During the Forum industry leaders make their decisions that provide direct impact on formation of the global gas market</p>
       <div class="hero__bg">HSE Events</div>
-      <flex-grid :items="sortedLinks"/>
+      <flex-grid ref="grid" :items="sortedLinks"/>
     </div>
   </main>
 </template>
 
 <script>
+import { TimelineLite } from 'gsap'
 import FlexGrid from '@/components/FlexGrid'
 
 export default {
@@ -30,6 +31,14 @@ export default {
      * Sort the list depending on the authorization status of the user
      */
     sortedLinks: function() { return this.links.filter(link => link) }
+  },
+  mounted() {
+    const timeline = new TimelineLite({ })
+    timeline.fromTo(this.$refs.line, .4, { scaleX: 0, transformOrigin:"right" }, { scaleX: 1})
+    timeline.fromTo(this.$refs.subtitle, .4, { y: '-100%' }, { y: '0%' }, '-=0.2')
+    timeline.fromTo(this.$refs.title, .4, { y: '-100%' }, { y: '0%' }, '-=0.2')
+    timeline.fromTo(this.$refs.desc, .5, { x: 20, autoAlpha: 0 }, { x: 0, autoAlpha: 1 }, '-=0.3')
+    timeline.staggerFromTo(this.$refs.grid.$refs.cell, .5, { x: -20, autoAlpha: 0 }, { x: 0, autoAlpha: 1 }, .05, '-=0.3')
   },
   components: { FlexGrid }
 }
@@ -73,11 +82,12 @@ export default {
     display: block
     width: 55px
     height: 1px
-    margin-left: -55px
+    margin-left: -65px
+    margin-top: 3px
     +br
     position: absolute
-    top: #{$padding + 4}
-    left: #{$padding / 2}
+    top: $padding
+    left: $padding
     background: currentColor
 
   &__subtitle,
