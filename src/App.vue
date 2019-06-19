@@ -5,7 +5,9 @@
     <!-- END Header -->
 
     <!-- BEGIN Page -->
-    <router-view/>
+    <transition name="page" mode="out-in">
+      <router-view/>
+    </transition>
     <!-- END Page -->
 
     <!-- BEGIN Footer -->
