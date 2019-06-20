@@ -1,5 +1,5 @@
 <template>
-  <main class="main main--v-centered">
+  <main class="main main--h-centered">
     <app-title title="Today events" :subtitle="currentDate"/>
   </main>
 </template>
@@ -7,7 +7,6 @@
 <script>
 import moment from 'moment'
 import AppTitle from '@/components/AppTitle'
-
 
 export default {
   name: 'Events',
@@ -20,6 +19,4 @@ export default {
 }
 </script>
 
-<style lang="sass">
-
-</style>
+<style lang="sass"></style>
