@@ -1,6 +1,10 @@
 <template>
   <div class="input" :class="{ 'input--in-focus':inFocus }">
+    <!-- BEGIN Label -->
     <label class="input__label" :for="filterLabel">{{ `${label.trim()}:` }}</label>
+    <!-- END Label -->
+
+    <!-- BEGIN Field -->
     <input class="input__field"
       ref="field"
       :id="filterLabel"
@@ -11,6 +15,7 @@
       @focus="inFocus = true"
       @blur="inFocus = false"
       @change="$emit('onChange', value)">
+    <!-- END Field -->
   </div>
 </template>
 

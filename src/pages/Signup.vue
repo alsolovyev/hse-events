@@ -1,7 +1,10 @@
 <template>
   <main class="main main--centered main--column">
+    <!-- BEGIN Title -->
     <app-title title="Create account" subtitle="welcome to hes events"/>
+    <!--END Title -->
 
+    <!-- BEGIN Form -->
     <form action="" class="form">
       <app-input v-for="(field, index) in fields" :key="index"
         ref="fields"
@@ -11,7 +14,9 @@
         :placeholder="field.placeholder"
         @onChange="value => field.value = value"/>
     </form>
+    <!-- END Form -->
 
+    <!-- BEGIN Links -->
     <ul class="form__links">
       <li class="form__link" v-for="(link, index) in links" :key="index" ref="links">
         <app-link
@@ -19,10 +24,13 @@
           :to="link.to"/>
       </li>
     </ul>
+    <!-- END Links -->
 
+    <!-- BEGIN Button -->
     <div ref="btn">
       <app-button icon="enter"/>
     </div>
+    <!-- END Button -->
   </main>
 </template>
 

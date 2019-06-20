@@ -1,10 +1,17 @@
 <template>
   <main class="main main--centered">
+    <!-- BEGIN Error -->
     <div class="error">
       <h1 class="error__title" ref="title">This is a<br/><span class="pink">{{ code }}</span> page</h1>
       <p class="error__msg" ref="msg">{{ message }}</p>
-      <app-button title="Homepage" icon="home" @onClick="goBack" ref="btn"/>
+
+      <!-- BEGIN Button -->
+      <div class="error__btn" ref="btn">
+        <app-button title="Homepage" icon="home" @onClick="goBack"/>
+      </div>
+      <!-- END Button -->
     </div>
+    <!-- END Error -->
   </main>
 </template>
 
@@ -44,11 +51,10 @@ export default {
     // console.log('Query: ', this.$route.query)
   },
   mounted() {
-    const timeline = new TimelineLite()
+    const els = [this.$refs.title, this.$refs.msg, this.$refs.btn],
+          timeline = new TimelineLite()
 
-    timeline.fromTo(this.$refs.title, .5, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 })
-    timeline.fromTo(this.$refs.msg, .5, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, '-=.3')
-    timeline.fromTo(this.$refs.btn.$el, .5, { autoAlpha: 0 }, { autoAlpha: 1 }, '-=.3')
+    timeline.staggerFromTo(els, .5, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, .2)
   },
   components: { AppButton }
 }
@@ -67,7 +73,9 @@ export default {
     margin: 40px 0
     font-size: 12px
 
-  >.btn
-    display: block
-    margin: 0 auto
+  &__btn
+    text-align: center
+  // >.btn
+    // display: block
+    // margin: 0 auto
 </style>
