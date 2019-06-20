@@ -1,14 +1,15 @@
 <template>
   <main class="main main--centered">
     <div class="error">
-      <h1 class="error__title">This is a<br/><span class="pink">{{ code }}</span> page</h1>
-      <p class="error__msg">{{ message }}</p>
-      <app-button title="Homepage" icon="home" @onClick="goBack"/>
+      <h1 class="error__title" ref="title">This is a<br/><span class="pink">{{ code }}</span> page</h1>
+      <p class="error__msg" ref="msg">{{ message }}</p>
+      <app-button title="Homepage" icon="home" @onClick="goBack" ref="btn"/>
     </div>
   </main>
 </template>
 
 <script>
+import { TimelineLite } from 'gsap'
 import AppButton from '@/components/AppButton'
 
 export default {
@@ -41,6 +42,13 @@ export default {
     if(this.$route.query.message) this.message = this.$route.query.message
     // console.log('Params: ', this.$route.params)
     // console.log('Query: ', this.$route.query)
+  },
+  mounted() {
+    const timeline = new TimelineLite()
+
+    timeline.fromTo(this.$refs.title, .5, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 })
+    timeline.fromTo(this.$refs.msg, .5, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, '-=.3')
+    timeline.fromTo(this.$refs.btn.$el, .5, { autoAlpha: 0 }, { autoAlpha: 1 }, '-=.3')
   },
   components: { AppButton }
 }
