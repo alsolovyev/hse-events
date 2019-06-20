@@ -136,10 +136,9 @@ export default {
       user-select: none
 
   &__line
-    $modal-line-width: 55px
-    width: $modal-line-width
+    width: $title-line-width
     height: 1px
-    margin-left: #{-$modal-line-width - 10}
+    margin-left: #{-$title-line-width - $title-line-margin}
     margin-top: 3px
     position: absolute
     top: 0
