@@ -1,12 +1,22 @@
 <template>
   <div class="modal" ref="modal">
-
-    <!-- BEGIN Content -->
     <div class="modal__inner" data-text="software">
+      <!-- BEGIN Line -->
       <span class="modal__line" ref="line"></span>
+      <!-- END Line -->
+
+      <!-- BEGIN Subtitle -->
       <p class="modal__subtitle"><span class="r-text" ref="subtitle">HSE Events software</span></p>
+      <!-- END Subtitle -->
+
+      <!-- BEGIN Title -->
       <h3 class="modal__title"><span class="r-text" ref="title">Mobile applications</span></h3>
+      <!-- END Title -->
+
+      <!-- BEGIN Text -->
       <p class="modal__descr" ref="desc">Download the <span class="pink">"HES Events"</span> mobile app. It's simple, fast and allows you to organize your schedule and communicate with events attendees effortlessly. With this application, you can view the news feed, ask questions, create and respond to polls and even more!</p>
+      <!-- END Text -->
+
       <ul class="modal__list">
         <li class="modal__item"
           v-for="(link, index) in links" :key="index" :data-index="`0${index + 1}`">

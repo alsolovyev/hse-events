@@ -1,7 +1,12 @@
 <template>
   <div class="head">
+    <!-- BEGIN Subtitle -->
     <p class="head__subtitle"><span class="r-text" ref="subtitle">{{subtitle}}</span></p>
+    <!-- END Subtitle -->
+
+    <!-- BEGIN Title -->
     <h1 class="head__title"><span class="r-text" ref="title">{{ title }}</span></h1>
+    <!-- END Title -->
   </div>
 </template>
 

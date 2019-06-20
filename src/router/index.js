@@ -4,14 +4,14 @@ import store from '@/store'
 
 Vue.use(VueRouter)
 
-// begin Pages
+// BEGIN Pages
 import Home from '@/pages/Home'
 import Signin from '@/pages/Signin'
 import Signup from '@/pages/Signup'
 import ResetPassword from '@/pages/ResetPassword'
 import Events from '@/pages/Events'
 import ErrorPage from '@/pages/Error'
-// end Pages
+// END Pages
 
 const router = new VueRouter({
   mode: 'history',
