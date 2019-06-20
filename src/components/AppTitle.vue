@@ -42,6 +42,7 @@ export default {
     // font-size: 10px
     font-size: .25em
     line-height: 1
+    letter-spacing: .1em
     text-transform: uppercase
     overflow: hidden
 
