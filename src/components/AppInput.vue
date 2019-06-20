@@ -7,7 +7,7 @@
       :name="filterLabel"
       :type="type"
       :placeholder="placeholder"
-      v-model.trim="value"
+      v-model.lazy="value"
       @focus="inFocus = true"
       @blur="inFocus = false"
       @change="$emit('onChange', value)">
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import Cleave from 'cleave.js'
+
 export default {
   name: 'TextInput',
   data() {
@@ -37,6 +39,18 @@ export default {
   //     return value.trim().replace(/ /g,"-");
   //   }
   // },
+  mounted() {
+
+    switch (this.mask) {
+      case 'date':
+        new Cleave(this.$refs.field, {
+          date: true,
+          delimiter: '.',
+          datePattern: ['d', 'm', 'Y']
+        })
+        break
+    }
+  },
   props: {
     label: {
       type: String,
@@ -52,7 +66,7 @@ export default {
     },
     mask: {
       type: String,
-      default: '*'
+      default: ''
     }
   }
 }
