@@ -21,6 +21,13 @@
     <!-- BEGIN Modal -->
     <app-modal v-if="this.$store.getters.isModalOpen"/>
     <!-- END Modal -->
+
+    <!-- BEGIN Notification -->
+    <notifications
+      classes="noti"
+      position="bottom right"
+      :duration="3000"/>
+    <!-- END Notification -->
   </div>
 </template>
 

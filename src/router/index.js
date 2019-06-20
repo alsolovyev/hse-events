@@ -9,7 +9,7 @@ import Home from '@/pages/Home'
 import Signin from '@/pages/Signin'
 import Signup from '@/pages/Signup'
 import Events from '@/pages/Events'
-import NotFound from '@/pages/NotFound'
+import ErrorPage from '@/pages/Error'
 // end Pages
 
 const router = new VueRouter({
@@ -19,7 +19,7 @@ const router = new VueRouter({
     { path: '/signin', name: 'signin', component: Signin, meta: { theme: 'blue' } },
     { path: '/signup', name: 'signup', component: Signup, meta: { theme: 'blue' } },
     { path: '/events', name: 'events', component: Events, meta: { theme: 'lime' } },
-    { path: '*', name: '404', component: NotFound, meta: { theme: 'blue' } }
+    { path: '*', name: 'error', component: ErrorPage, meta: { theme: 'blue' } }
   ]
 })
 

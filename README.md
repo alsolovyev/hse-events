@@ -1,6 +1,6 @@
 # HSE Events
 
-Web application for attendees of events organized by the [Higher School of Economics](https://spb.hse.ru/en/) and their partners. The application helps you to learn about upcoming events, stay in touch with speakers, participate in surveys and find out their results.
+Web application for attendees of events organized by the [Higher School of Economics](https://spb.hse.ru/en/) and their partners. The app that helps you to learn about upcoming events, stay in touch with speakers, participate in surveys, and find out their results.
 
 [https://dev.hes.website/](https://dev.hes.website/)
 
@@ -10,7 +10,7 @@ Web application for attendees of events organized by the [Higher School of Econo
 
 ##### Project setup
 ```
-yarn install
+yarn
 ```
 
 ##### Compiles and hot-reloads for development
