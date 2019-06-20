@@ -31,8 +31,8 @@ export default {
     return {
       links: [
         { name: 'Home', to: { name: 'home' }, reqAuth: false },
-        { name: 'Signin', to: { name: 'signin' }, reqAuth: false },
-        { name: 'Events', to: { name: 'events' }, reqAuth: false }
+        { name: 'Events', to: { name: 'events' }, reqAuth: false },
+        { name: 'signin', to: { name: 'signin' }, reqAuth: false }
       ]
     }
   },
