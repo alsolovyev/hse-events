@@ -32,6 +32,9 @@ export default {
 
 <style lang="sass">
 .head
+  display: flex
+  flex-direction: column
+  align-items: center
   text-align: center
   font-size: 40px
   font-weight: 700

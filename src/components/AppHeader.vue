@@ -32,7 +32,7 @@ export default {
       links: [
         { name: 'Home', to: { name: 'home' }, reqAuth: false },
         { name: 'Events', to: { name: 'events' }, reqAuth: false },
-        { name: 'signin', to: { name: 'signin' }, reqAuth: false }
+        { name: 'auth', to: { name: 'signin' }, reqAuth: false }
       ]
     }
   },
@@ -63,6 +63,10 @@ export default {
       height: 10px
       +center
       opacity: .5
+    &:hover,
+    &:focus
+      >.icon
+        fill: $blue
 
 .nav
   line-height: 1
