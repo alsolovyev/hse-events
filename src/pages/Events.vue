@@ -1,10 +1,22 @@
 <template>
-  <main class="main main--centered">Events</main>
+  <main class="main main--v-centered">
+    <app-title title="Today events" :subtitle="currentDate"/>
+  </main>
 </template>
 
 <script>
+import moment from 'moment'
+import AppTitle from '@/components/AppTitle'
+
+
 export default {
-  name: 'Events'
+  name: 'Events',
+  computed: {
+    currentDate: function() {
+      return moment().format("dddd, MMMM Do, h:mm:ss a")
+    }
+  },
+  components: { AppTitle }
 }
 </script>
 
