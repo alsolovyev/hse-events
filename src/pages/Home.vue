@@ -80,9 +80,9 @@ export default {
 
   &__line
     display: block
-    width: 55px
+    width: $title-line-width
     height: 1px
-    margin-left: -65px
+    margin-left: #{-$title-line-width - $title-line-margin}
     margin-top: 3px
     +br
     position: absolute
@@ -94,7 +94,6 @@ export default {
   &__title
     font-weight: 700
     overflow: hidden
-
 
   &__subtitle
     font-size: 10px
