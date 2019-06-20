@@ -63,6 +63,10 @@ export default {
       height: 10px
       +center
       opacity: .5
+    &:hover,
+    &:focus
+      >.icon
+        fill: $blue
 
 .nav
   line-height: 1
