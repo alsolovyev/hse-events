@@ -40,6 +40,7 @@ export default {
     padding: 0 $p
     font-size: 10px
     line-height: 1
+    text-transform: uppercase
     overflow: hidden
     &::after,
     &::before
