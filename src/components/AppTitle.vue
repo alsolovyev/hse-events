@@ -33,18 +33,22 @@ export default {
 <style lang="sass">
 .head
   text-align: center
+  font-size: 40px
   font-weight: 700
+
   &__subtitle
-    $p: #{55px + 10}
+    padding: 0 #{$title-line-width + $title-line-margin}
     position: relative
-    padding: 0 $p
-    font-size: 10px
+    // font-size: 10px
+    font-size: .25em
     line-height: 1
+    text-transform: uppercase
     overflow: hidden
+
     &::after,
     &::before
       content: ''
-      width: 55px
+      width: $title-line-width
       height: 1px
       margin-top: -1px
       position: absolute
@@ -66,7 +70,6 @@ export default {
         transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
 
   &__title
-    font-size: 40px
     line-height: 1.2
     overflow: hidden
 </style>
