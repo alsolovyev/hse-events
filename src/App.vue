@@ -54,4 +54,7 @@ export default {
   height: 0 // fix vertical stretch in IE
   min-height: 100vh
   padding: #{$padding * 3}
+
+  +r(700)
+    padding: #{$padding * 2}
 </style>
