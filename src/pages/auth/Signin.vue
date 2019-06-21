@@ -5,7 +5,7 @@
     <!--END Title -->
 
     <!-- BEGIN Form -->
-    <form action="" class="form">
+    <form @submit.prevent="onSubmit" class="form">
       <app-input v-for="(field, index) in fields" :key="index"
         ref="fields"
         :label="field.label"
@@ -13,6 +13,10 @@
         :mask="field.mask"
         :placeholder="field.placeholder"
         @onChange="value => field.value = value"/>
+
+      <!-- BEGIN Submit button -->
+      <input type="submit">
+      <!-- END Submit button -->
     </form>
     <!-- END Form -->
 
@@ -28,7 +32,7 @@
 
     <!-- BEGIN Button -->
     <div ref="btn">
-      <app-button icon="enter"/>
+      <app-button icon="enter" @onClick="onSubmit"/>
     </div>
     <!-- END Button -->
   </main>
@@ -47,12 +51,24 @@ export default {
     return {
       links: [
         { name: 'signup',         to: { name: 'signup' } },
-        { name: 'reset password', to: { name: 'restore' } },
+        { name: 'reset password', to: { name: 'reset' } },
       ],
       fields: [
         { label: 'Username', type: 'text',    mask: "", placeholder: "", value: null},
         { label: 'Password', type: 'password', mask: "", placeholder: "", value: null}
       ]
+    }
+  },
+  methods: {
+    /**
+     * Submit form or press button
+     */
+    onSubmit() {
+      const params = {
+        code: 503,
+        message: 'We\'re undergoing a bit of scheduled maintenance. Sorry for the inconvenience. We\'ll be back and running as fast as possible.'
+      }
+      this.$router.push({ name: 'error', params })
     }
   },
   mounted() {
