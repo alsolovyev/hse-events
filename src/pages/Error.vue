@@ -1,12 +1,14 @@
 <template>
   <main class="main main--centered">
     <!-- BEGIN Error -->
-    <div class="error">
-      <h1 class="error__title" ref="title">This is a<br/><span class="pink">{{ code }}</span> page</h1>
-      <p class="error__msg" ref="msg">{{ message }}</p>
+    <div class="error" :data-code="code">
+      <h1 class="error__title" ref="title">
+        This is a<br/><span class="pink">{{ code }}</span> page
+      </h1>
+      <p class="error__msg" ref="msg" v-html="message"></p>
 
       <!-- BEGIN Button -->
-      <div class="error__btn" ref="btn">
+      <div ref="btn">
         <app-button title="Homepage" icon="home" @onClick="goBack"/>
       </div>
       <!-- END Button -->
@@ -62,8 +64,23 @@ export default {
 
 <style lang="sass">
 .error
+  position: relative
   width: 100%
   max-width: 300px
+  text-align: center
+
+  &::before
+    content: attr(data-code)
+    // width: 100%
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: -1
+    font: 700 300px/.8 'Poppins', sans-serif
+    color: $grey
+    pointer-events: none
+    user-select: none
 
   &__title
     font-size: 50px
@@ -72,10 +89,6 @@ export default {
   &__msg
     margin: 40px 0
     font-size: 12px
-
-  &__btn
-    text-align: center
-  // >.btn
-    // display: block
-    // margin: 0 auto
+    br
+      line-height: 3em
 </style>
