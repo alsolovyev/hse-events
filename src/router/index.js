@@ -6,9 +6,10 @@ Vue.use(VueRouter)
 
 // BEGIN Pages
 import Home from '@/pages/Home'
-import Signin from '@/pages/Signin'
-import Signup from '@/pages/Signup'
-import ResetPassword from '@/pages/ResetPassword'
+import Signin from '@/pages/auth/Signin'
+import Signup from '@/pages/auth/Signup'
+import ResetPassword from '@/pages/auth/ResetPassword'
+import ResetSuccess from '@/pages/auth/ResetSuccess'
 import Events from '@/pages/Events'
 import ErrorPage from '@/pages/Error'
 // END Pages
@@ -16,12 +17,13 @@ import ErrorPage from '@/pages/Error'
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', name: 'home', component: Home, meta: { theme: 'pink' } },
-    { path: '/signin', name: 'signin', component: Signin, meta: { theme: 'blue' } },
-    { path: '/signup', name: 'signup', component: Signup, meta: { theme: 'blue' } },
-    { path: '/restore', name: 'restore', component: ResetPassword, meta: { theme: 'blue' } },
-    { path: '/events', name: 'events', component: Events, meta: { theme: 'lime' } },
-    { path: '*', name: 'error', component: ErrorPage, meta: { theme: 'blue' } }
+    { path: '/',              name: 'home',          component: Home,          meta: { theme: 'pink' } },
+    { path: '/signin',        name: 'signin',        component: Signin,        meta: { theme: 'blue' } },
+    { path: '/signup',        name: 'signup',        component: Signup,        meta: { theme: 'blue' } },
+    { path: '/reset',         name: 'reset',         component: ResetPassword, meta: { theme: 'blue' } },
+    { path: '/reset/success', name: 'reset-success', component: ResetSuccess,  meta: { theme: 'blue' } },
+    { path: '/events',        name: 'events',        component: Events,        meta: { theme: 'lime' } },
+    { path: '/error',         name: 'error',         component: ErrorPage,     meta: { theme: 'blue' }, alias: '*' }
   ]
 })
 
