@@ -5,13 +5,20 @@
       :key="index"
       ref="cell"
       :data-index="`0${index + 1}`">
-
+      <!-- BEGIN Line -->
       <span class="cell__line"></span>
+      <!-- END Line -->
+
+      <!-- BEGIN Content -->
       <p class="cell__text">{{ item.description || 'Add description field' }}</p>
+      <!-- END Content -->
+
+      <!-- BEGIN Link -->
       <app-link
         classes="pink"
         :to="item.to || { name: 'home' } "
         :name="item.name || 'Add name field '"/>
+      <!-- END Link -->
     </li>
   </ul>
 </template>

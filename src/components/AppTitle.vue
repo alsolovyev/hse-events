@@ -1,7 +1,12 @@
 <template>
   <div class="head">
+    <!-- BEGIN Subtitle -->
     <p class="head__subtitle"><span class="r-text" ref="subtitle">{{subtitle}}</span></p>
+    <!-- END Subtitle -->
+
+    <!-- BEGIN Title -->
     <h1 class="head__title"><span class="r-text" ref="title">{{ title }}</span></h1>
+    <!-- END Title -->
   </div>
 </template>
 
@@ -32,6 +37,9 @@ export default {
 
 <style lang="sass">
 .head
+  display: flex
+  flex-direction: column
+  align-items: center
   text-align: center
   font-size: 40px
   font-weight: 700
@@ -42,6 +50,7 @@ export default {
     // font-size: 10px
     font-size: .25em
     line-height: 1
+    letter-spacing: .1em
     text-transform: uppercase
     overflow: hidden
 

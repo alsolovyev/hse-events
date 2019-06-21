@@ -13,7 +13,9 @@
         <li class="nav__item"
           v-for="(link, index) in sortedLinks"
           :key="index">
+          <!-- BEGIN Link -->
           <app-link :name="link.name" :to="link.to"/>
+          <!-- END Link -->
         </li>
       </ul>
     </nav>
@@ -31,8 +33,8 @@ export default {
     return {
       links: [
         { name: 'Home', to: { name: 'home' }, reqAuth: false },
-        { name: 'Auth', to: { name: 'auth' }, reqAuth: false },
-        { name: 'Events', to: { name: 'events' }, reqAuth: false }
+        { name: 'Events', to: { name: 'events' }, reqAuth: false },
+        { name: 'auth', to: { name: 'signin' }, reqAuth: false }
       ]
     }
   },
@@ -63,6 +65,10 @@ export default {
       height: 10px
       +center
       opacity: .5
+    &:hover,
+    &:focus
+      >.icon
+        fill: $blue
 
 .nav
   line-height: 1

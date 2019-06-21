@@ -31,15 +31,13 @@ body
 
 // Content wrapper
 .main
+  display: flex
   flex: 1 1 auto
   padding: #{$padding * 2} 0
 
   &--centered
-    display: flex
     justify-content: center
     align-items: center
 
-  &--h-centered
-    display: flex
+  &--column
     flex-direction: column
-    align-items: center

@@ -1,12 +1,20 @@
 <template>
   <main class="main main--centered">
     <div class="hero">
+      <!-- BEGIN Title -->
       <span class="hero__line" ref="line"></span>
       <p class="hero__subtitle"><span class="r-text" ref="subtitle">now about business</span></p>
       <h1 class="hero__title"><span class="r-text" ref="title">HSE Events</span></h1>
+      <!-- END Title -->
+
+      <!-- BEGIN Description -->
       <p class="hero__descr" ref="desc">HES Events Forum is the leading venue to discuss topical issues of the industry. During the Forum industry leaders make their decisions that provide direct impact on formation of the global gas market</p>
       <div class="hero__bg">HSE Events</div>
+      <!-- END Description -->
+
+      <!-- BEGIN Grid -->
       <flex-grid ref="grid" :items="sortedLinks"/>
+      <!-- END Grid -->
     </div>
   </main>
 </template>
@@ -20,8 +28,8 @@ export default {
   data() {
     return {
       links: [
-        { name: 'Sign up', reqAuth: false, to: { name: 'auth' }, description: 'Create a HES Events account'},
-        { name: 'Sign in', reqAuth: false, to: { name: 'auth' }, description: 'Already have an account?'},
+        { name: 'Sign up', reqAuth: false, to: { name: 'signup' }, description: 'Create a HES Events account'},
+        { name: 'Sign in', reqAuth: false, to: { name: 'signin' }, description: 'Already have an account?'},
         { name: 'Events',   reqAuth: false, to: { name: 'events' }, description: 'Learn more about ongoing events'}
       ]
     }
