@@ -57,4 +57,13 @@ export default {
 
   +r(700)
     padding: #{$padding * 2}
+
+.empty-img
+  background-image: url("./assets/images/empty.png")
+  background-size: cover
+  background-position: center
+  &::before
+    content: ''
+    display: block
+    padding-top: 68%
 </style>
