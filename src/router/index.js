@@ -11,6 +11,7 @@ import Signup from '@/pages/auth/Signup'
 import ResetPassword from '@/pages/auth/ResetPassword'
 import ResetSuccess from '@/pages/auth/ResetSuccess'
 import Events from '@/pages/Events'
+import Event from '@/pages/Event'
 import ErrorPage from '@/pages/Error'
 // END Pages
 
@@ -23,6 +24,7 @@ const router = new VueRouter({
     { path: '/reset',         name: 'reset',         component: ResetPassword, meta: { theme: 'blue' } },
     { path: '/reset/success', name: 'reset-success', component: ResetSuccess,  meta: { theme: 'blue' } },
     { path: '/events',        name: 'events',        component: Events,        meta: { theme: 'lime' } },
+    { path: '/event/:id',     name: 'event',         component: Event,         meta: { theme: 'lime' } },
     { path: '/error',         name: 'error',         component: ErrorPage,     meta: { theme: 'blue' }, alias: '*' }
   ]
 })
