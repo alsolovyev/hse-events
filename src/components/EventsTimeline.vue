@@ -5,8 +5,14 @@
       @mouseenter="hideItems(i)"
       @mouseleave="showItems(i)"
       :class="{ 'timeline__item--in-progress': i % 3 === 1 }">
+      <!-- BEGIN On air -->
+      <span class="timeline__on-air" title="Ongoing events"></span>
+      <!-- END On air -->
+
       <!-- BEGIN Event title -->
-      <h2 class="timeline__title"><a href="">{{event.title}}</a></h2>
+      <h2 class="timeline__title" title="Go to the event page">
+        <a href="">{{event.title}}</a>
+      </h2>
       <!-- END Event title -->
 
       <!-- BEGIN Event date -->
@@ -57,46 +63,32 @@ export default {
   width: 100%
   max-width: 500px
   margin: #{$padding * 2} 0
-  // +check
 
   &__item
-    // +check
-    // margin-bottom: #{$padding * 3}
+    position: relative
     border-left: 1px solid rgba($black, .3)
     padding: $padding #{$padding*2}
     transition: opacity .3s
-
     &:last-child
       margin-bottom: 0
 
-    &:hover
-      border-color: $blue
-      .timeline__title::before
-        background: $blue
-        border-color: $blue
-      .timeline__poll::before
-        background: $blue
-
     &--in-progress
-      border-color: $pink
-      .timeline
-        &__date
-          // color: $lime
-        &__title::before
-          background: $pink
-          border-color: $pink
-
-        &__poll::before
-          transform: scale3d(1, 1, 1)
-          background: $pink
+      border-color: $lime
+      .timeline__on-air
+        display: block
+        &::after
+          animation: eventInProgress 1.5s cubic-bezier(0, 0.2, 0.8, 1)infinite
+        &::before
+          animation: eventInProgress 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite .5s
+      .timeline__title
+          &::before
+            background: $lime
+            border-color: $lime
 
     &--is-hidden
       opacity: .3 !important
       border-color: rgba($black, .3)
-      .timeline
-        &__date
-          // color: $lime
-        &__title::before
+      .timeline__title::before
           background: $white
           border-color: rgba($black, .3)
 
@@ -104,63 +96,85 @@ export default {
     position: relative
     font-weight: 500
     font-size: 14px
-
     &::before
       content: ''
+      border-radius: 50%
+      position: absolute
       width: 9px
       height: 9px
-      border-radius: 50%
-      border: 1px solid rgba($black, .3)
-      position: absolute
       top: .5em
       left: #{-($padding * 2) - 5}
-      z-index: 10
+      border: 1px solid rgba($black, .3)
       background: $white
       transition: background .3s, border .3s
+      z-index: 10
+
+    &:hover
+      text-decoration: underline
 
   &__date
-    margin: 10px 0 15px 0
+    margin: 10px 0 25px 0
     font-size: 10px
     line-height: 1
     transition: color .3s
+    font-weight: 500
 
   &__poll
     display: block
-    padding: 6px 12px
-    margin-bottom: 10px
-    +br(2)
-    +br-light
     position: relative
+    padding: 6px 12px
+    margin-bottom: 5px
+    margin-left: 10px
     font-size: 12px
+    line-height: 1
     overflow: hidden
     white-space: nowrap
-    // text-overflow: ellipsis
     transition: transform .3s
     &::before,
     &::after
       content: ''
-      height: 100%
       position: absolute
-      top: 0
     &::before
+      top: 55%
+      transform: translate(0, -50%)
+      border: 3px solid rgba($white, 0)
+      border-left-color: $black
       left: 0
-      width: 2px
-      background: $blue
-      transform: scale3d(0, 1, 1)
-      transition: transform .3s, background .3s
-
+      opacity: .5
     &::after
+      width: 10%
+      min-width: 25px
+      height: 100%
+      top: 0
       right: 0
-      width: 15%
-      min-width: 20px
-      background-image: linear-gradient(90deg, rgba($white, 0), rgba($white, 1) 75%)
+      background-image: linear-gradient(90deg, $trans, $white 75%)
+      z-index: 100
 
     &:hover
       transform: translate3d(10px, 0, 0)
-      &::before
-        transform: scale3d(1, 1, 1)
 
   &__empty
     width: 150px
     margin: 0 auto
+
+  &__on-air
+    display: none
+    width: 1px
+    height: 1px
+    position: absolute
+    top: 31px
+    left: -1px
+    &::after,
+    &::before
+      content: ''
+      width: 41px
+      height: 41px
+      border-radius: 50%
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0)
+      border: 1px solid $lime
+      border-top-color: $trans
+      border-bottom-color: $trans
 </style>
