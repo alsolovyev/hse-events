@@ -1,7 +1,7 @@
 <template>
   <main class="main main--centered main--column">
     <!-- BEGIN Title -->
-    <app-title title="Create account" subtitle="welcome to hes events"/>
+    <app-title title="Create account" subtitle="welcome to hse events"/>
     <!--END Title -->
 
     <!-- BEGIN Form -->
