@@ -4,7 +4,7 @@
     <app-title title="Success" subtitle="Account recovery"/>
     <!--END Title -->
 
-    <p class="form__success" ref="msg">
+    <p ref="msg">
       HSE Events will send a verification
       message to <span class="pink">{{ email }}</span>
     </p>
@@ -63,6 +63,11 @@ export default {
 }
 </script>
 
-<style lang="sass">
-
+<style lang="sass" scoped>
+p
+  width: 100%
+  max-width: 300px
+  font-size: 12px
+  margin: 20px 0 30px 0
+  text-align: center
 </style>
