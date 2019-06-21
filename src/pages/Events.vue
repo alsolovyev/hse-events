@@ -1,6 +1,8 @@
 <template>
-  <main class="main main--h-centered">
-    <app-title title="Today events" :subtitle="currentDate"/>
+  <main class="main events">
+    <!-- BEGIN Title -->
+    <app-title title="Today events" :subtitle="date"/>
+    <!-- END Title -->
   </main>
 </template>
 
@@ -10,13 +12,32 @@ import AppTitle from '@/components/AppTitle'
 
 export default {
   name: 'Events',
-  computed: {
-    currentDate: function() {
-      return moment().format("dddd, MMMM Do, h:mm:ss a")
+  data() {
+    return {
+      date: null,
+      interval: null,
     }
+  },
+  methods: {
+    /**
+     * Get current time
+     */
+    getTime() { this.date = moment().format("dddd, MMMM Do, h:mm:ss a") }
+  },
+  mounted() {
+    this.date = moment().format("dddd, MMMM Do, h:mm:ss a")
+    this.interval = setInterval(this.getTime, 1000)
+  },
+  beforeDestroy() {
+    clearInterval(this.interval)
   },
   components: { AppTitle }
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.events
+  display: flex
+  flex-direction: column
+
+</style>
