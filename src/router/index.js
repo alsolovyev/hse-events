@@ -4,18 +4,22 @@ import store from '@/store'
 
 Vue.use(VueRouter)
 
-// begin Pages
+// BEGIN Pages
 import Home from '@/pages/Home'
-import Auth from '@/pages/Auth'
+import Signin from '@/pages/Signin'
+import Signup from '@/pages/Signup'
+import ResetPassword from '@/pages/ResetPassword'
 import Events from '@/pages/Events'
 import ErrorPage from '@/pages/Error'
-// end Pages
+// END Pages
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', name: 'home', component: Home, meta: { theme: 'pink' } },
-    { path: '/auth', name: 'auth', component: Auth, meta: { theme: 'blue' } },
+    { path: '/signin', name: 'signin', component: Signin, meta: { theme: 'blue' } },
+    { path: '/signup', name: 'signup', component: Signup, meta: { theme: 'blue' } },
+    { path: '/restore', name: 'restore', component: ResetPassword, meta: { theme: 'blue' } },
     { path: '/events', name: 'events', component: Events, meta: { theme: 'lime' } },
     { path: '*', name: 'error', component: ErrorPage, meta: { theme: 'blue' } }
   ]
