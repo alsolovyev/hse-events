@@ -1,11 +1,11 @@
 <template>
   <main class="main main--centered main--column">
     <!-- BEGIN Title -->
-    <app-title title="Create account" subtitle="welcome to hes events"/>
+    <app-title title="Sign In" subtitle="welcome to hse events"/>
     <!--END Title -->
 
     <!-- BEGIN Form -->
-    <form action="" class="form">
+    <form @submit.prevent="onSubmit" class="form">
       <app-input v-for="(field, index) in fields" :key="index"
         ref="fields"
         :label="field.label"
@@ -13,6 +13,10 @@
         :mask="field.mask"
         :placeholder="field.placeholder"
         @onChange="value => field.value = value"/>
+
+      <!-- BEGIN Submit button -->
+      <input type="submit">
+      <!-- END Submit button -->
     </form>
     <!-- END Form -->
 
@@ -28,7 +32,7 @@
 
     <!-- BEGIN Button -->
     <div ref="btn">
-      <app-button icon="enter"/>
+      <app-button icon="enter" @onClick="onSubmit"/>
     </div>
     <!-- END Button -->
   </main>
@@ -42,22 +46,29 @@ import AppInput from '@/components/AppInput'
 import AppButton from '@/components/AppButton'
 
 export default {
-  name: 'Signup',
+  name: 'Signin',
   data() {
     return {
       links: [
-        { name: 'signin',         to: { name: 'signin' } },
-        { name: 'reset password', to: { name: 'restore' } },
+        { name: 'signup',         to: { name: 'signup' } },
+        { name: 'reset password', to: { name: 'reset' } },
       ],
       fields: [
-        { label: 'First name',  type: 'text',     mask: "",     placeholder: "",           value: null},
-        { label: 'Last name',   type: 'text',     mask: "",     placeholder: "",           value: null},
-        { label: 'Email',       type: 'email',    mask: "",     placeholder: "",           value: null},
-        { label: 'Birthday',    type: 'text',     mask: "date", placeholder: "12.31.2019", value: null},
-        { label: 'Password',    type: 'password', mask: "",     placeholder: "",           value: null},
-        { label: 'Re-password', type: 'password', mask: "",     placeholder: "",           value: null},
-        { label: 'Event-code',  type: 'text',     mask: "",     placeholder: "",           value: null}
+        { label: 'Username', type: 'text',    mask: "", placeholder: "", value: null},
+        { label: 'Password', type: 'password', mask: "", placeholder: "", value: null}
       ]
+    }
+  },
+  methods: {
+    /**
+     * Submit form or press button
+     */
+    onSubmit() {
+      const params = {
+        code: 503,
+        message: 'We\'re undergoing a bit of scheduled maintenance. Sorry for the inconvenience. We\'ll be back and running as fast as possible.'
+      }
+      this.$router.push({ name: 'error', params })
     }
   },
   mounted() {
