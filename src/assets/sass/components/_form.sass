@@ -1,7 +1,11 @@
 .form
   width: 100%
   max-width: 300px
-  padding: 40px 0 30px 0
+  margin: 40px 0 30px 0
+
+  input[type="submit"]
+    display: none
+    +hidetext
 
   .input
     margin-bottom: 20px
@@ -14,10 +18,17 @@
     line-height: 1
     text-transform: uppercase
     letter-spacing: 1px
-    margin-bottom: 20px
+    margin-bottom: 25px
     text-align: center
 
   &__link
     margin-bottom: 10px
     &:last-child
      margin-bottom: 0
+
+  &__msg
+    width: 100%
+    max-width: 300px
+    text-align: center
+    font-size: 11px
+    margin-top: 6px
