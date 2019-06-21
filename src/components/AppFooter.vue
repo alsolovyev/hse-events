@@ -43,6 +43,7 @@ export default {
     transition: opacity .3s
     cursor: pointer
 
+    &:focus,
     &:hover
       opacity: 1
 </style>
