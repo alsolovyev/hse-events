@@ -11,7 +11,7 @@
 
       <!-- BEGIN Event title -->
       <h2 class="timeline__title" title="Go to the event page">
-        <a href="">{{event.title}}</a>
+        <router-link :to="{ name: 'event', params: { id: event.id } }">{{ event.title }}</router-link>
       </h2>
       <!-- END Event title -->
 
@@ -22,7 +22,7 @@
       <ul v-if="event.polls.length !== 0">
         <!-- BEGIN Poll -->
         <li v-for="(poll, j) in event.polls" :key="j">
-          <a class="timeline__poll" href="">{{poll.title}}</a>
+          <a class="timeline__poll" href="#">{{poll.title}}</a>
         </li>
         <!-- END Poll -->
       </ul>
@@ -94,7 +94,7 @@ export default {
 
   &__title
     position: relative
-    font-weight: 500
+    font-weight: 700
     font-size: 14px
     &::before
       content: ''

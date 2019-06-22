@@ -28,6 +28,7 @@ export default {
       interval: null,
       events: [
         {
+          id: 1,
           title: 'Gas and Oil Production Equipment',
           date: '02.01.2019',
           polls: [
@@ -42,6 +43,7 @@ export default {
           ]
         },
         {
+          id: 2,
           title: 'Oil and Gas Transporting Equipment',
           date: '02.01.2019',
           polls: [
@@ -56,11 +58,13 @@ export default {
           ]
         },
         {
+          id: 3,
           title: 'Service, Activities and Technologies Offered by the Oil and Gas Complex',
           date: '02.01.2019',
           polls: []
         },
         {
+          id: 4,
           title: 'Oil and Gas Transporting Equipment',
           date: '02.01.2019',
           polls: [
