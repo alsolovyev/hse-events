@@ -7,6 +7,7 @@
 <script>
 import home from '@/assets/icons/home.svg'
 import enter from '@/assets/icons/enter.svg'
+import list from '@/assets/icons/list.svg'
 
 export default {
   name: 'AppButton',
@@ -22,7 +23,7 @@ export default {
       default: 'home'
     }
   },
-  components: { home, enter }
+  components: { home, enter, list }
 }
 </script>
 
