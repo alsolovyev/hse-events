@@ -1,35 +1,22 @@
 <template>
-  <main class="main event" data-bg="event" @click="isLoading = !isLoading">
+  <main class="main event" data-bg="event">
     <transition name="fade" mode="out-in">
-    <!-- BEGIN Event -->
-    <div class="event__inner" v-if="!isLoading" key="event">
-      <h1 class="event__title">Service, Activities and Technologies Offered by the Oil and Gas Complex</h1>
-      <ul>
-        <li>asd</li>
-        <li>asd</li>
-        <li>asd</li>
-        <li>asd</li>
-      </ul>
-      <p class="event__descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam incidunt facere amet exercitationem debitis voluptatum hic vel non. Cumque aut, sunt provident mollitia optio magnam facere vitae reprehenderit sit aliquid.</p>
-    </div>
-    <!-- END Event -->
-
-    <!-- BEGIN Preloader -->
-    <div class="event__preloader" v-else key="preloader">preloader</div>
-    <!-- END Preloader -->
+      <component :event="event" :is="component"></component>
     </transition>
   </main>
 </template>
 
 <script>
+import axios from 'axios'
+import AppPreloader from '@/components/AppPreloader'
+import AppEvent from '@/components/AppEvent'
+
 export default {
   name: 'Event',
   data() {
     return {
-      isLoading: true,
-      event: {
-        id: null
-      }
+      component: AppPreloader,
+      event: null
     }
   },
   mounted() {
@@ -41,13 +28,40 @@ export default {
       return
     }
 
-    this.event.id = this.$route.params.id
-  }
+    /**
+     * Get event info from server
+     */
+    const url = 'http://www.mocky.io/v2/5d0df07b3400007b00ca4aca?mocky-delay=2000ms'
+    // BEGIN Request
+    axios.get(url, {
+      id: this.$route.params.id
+    })
+    // Change component on success
+    .then(response => {
+      this.event = response.data
+      this.component = AppEvent
+    })
+    // Redirect to the error page(with code and message)
+    // eslint-disable-next-line
+    .catch(error => {
+      this.$router.push({ name: 'error', params:
+        {
+          code: 500,
+          message: 'We\'re undergoing a bit of scheduled maintenance. Sorry for the inconvenience. We\'ll be back and running as fast as possible.'
+        }
+      })
+    })
+    // END Request
+  },
+  components: { AppPreloader, AppEvent }
 }
 </script>
 
 <style lang="sass">
 .event
+  display: flex
+  justify-content: center
+  align-items: center
 
   &::before
     content: attr(data-bg)
@@ -55,9 +69,18 @@ export default {
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
-    font: 900 200px/1 'Poppins', sans-serif
+    // font: 900 200px/1 'Poppins', sans-serif
+    font-family: 'Poppins', sans-serif
+    line-height: 1
+    font-weight: 900
+    +css-lock(80, 200, 320, 1400)
     text-transform: uppercase
     color: $grey
     z-index: -1
 
+  &__preloader
+    // position: absolute !important
+    // top: 50% !important
+    // left: 50% !important
+    // transform: translate(-50%, -50%) !important
 </style>
