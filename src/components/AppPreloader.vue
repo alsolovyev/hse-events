@@ -5,6 +5,8 @@
     <span class="preloader__line"></span>
     <span class="preloader__line"></span>
     <span class="preloader__line"></span>
+    <span class="preloader__line"></span>
+    <span class="preloader__line"></span>
   </div>
 </template>
 
@@ -20,10 +22,10 @@ export default {
   width: $preloader-size
   height: $preloader-size
   position: relative
-  border-radius: 50%
-  border: $size solid $trans
-  border-bottom-color: $pink
-  animation: spinClockwise 5s infinite linear
+  // border-radius: 50%
+  // border: $size solid $trans
+  // border-bottom-color: $pink
+  // animation: spinClockwise 5s infinite linear
   cursor: progress
 
   &__line
@@ -35,7 +37,7 @@ export default {
     animation-timing-function: linear
     $colors: $lime, $blue, $pink, #616CFF
     $dirs: top, right, bottom, left
-    $amount: 5
+    $amount: 7
     @for $i from 1 through $amount
       &:nth-child(#{$i})
         $color: nth($colors, random(length($colors)))
@@ -47,21 +49,21 @@ export default {
         left: #{$size * ($i - $p) * 2}
         @if $dir == 'top'
           border-top-color: $color
-          animation-duration: #{random(10) + s}
+          animation-duration: #{random(5) + s}
           animation-name: spinClockwise
           // animation-name: spinCounterclockwise
         @else if $dir == 'right'
           border-right-color: $color
-          animation-duration: #{random(10) + s}
+          animation-duration: #{random(5) + s}
           animation-name: spinClockwise
           // animation-name: spinCounterclockwise
         @else if $dir == 'left'
           border-left-color: $color
-          animation-duration: #{random(10) + s}
+          animation-duration: #{random(5) + s}
           animation-name: spinClockwise
         @else
           border-bottom-color: $color
-          animation-duration: #{random(10) + s}
+          animation-duration: #{random(5) + s}
           animation-name: spinClockwise
 
 
