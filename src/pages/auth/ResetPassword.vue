@@ -78,7 +78,10 @@ export default {
     const fields = [],
           timeline = new TimelineLite({
             delay: .8,
-            onComplete: () => { document.getElementsByTagName('input')[0].focus() }
+            onComplete: () => {
+              const input = document.getElementsByTagName('input')[0]
+              if(input) input.focus()
+            }
           })
 
     fields.push(this.$refs.msg)

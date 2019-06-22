@@ -81,7 +81,8 @@ export default {
           timeline = new TimelineLite({
             delay: .8,
             onComplete: () => {
-              document.getElementsByTagName('input')[0].focus()
+              const input = document.getElementsByTagName('input')[0]
+              if(input) input.focus()
             }
           })
 
