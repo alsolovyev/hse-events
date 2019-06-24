@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" @click="onClick">
+  <button class="btn" :class="{ 'btn--is-loading':isLoading }" @click="onClick">
     <component :is="icon"></component>
   </button>
 </template>
@@ -21,6 +21,10 @@ export default {
     icon: {
       type: String,
       default: 'home'
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
     }
   },
   components: { home, enter, list }
@@ -39,7 +43,7 @@ export default {
   transition: transform .3s, box-shadow .3s
   +hidetext
 
-  >.icon
+  .icon
     width: $btn-icon-size
     height: $btn-icon-size
     +center
@@ -52,4 +56,22 @@ export default {
   &:active
     box-shadow: $btn-shadow-active
     transform: translate3d(0,5px,0)
+
+  &--is-loading
+    background-image: $linear-gradient
+    background-size: 11px
+    animation: btnIsLoading 1s infinite linear
+    box-shadow: $btn-shadow-active
+    cursor: progress
+    .icon
+      opacity: .3
+
+    &:hover,
+    &:focus
+      .icon
+        fill: $black
+
+@keyframes btnIsLoading
+  to
+    background-position-x: 22px
 </style>
