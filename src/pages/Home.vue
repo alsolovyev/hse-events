@@ -57,6 +57,7 @@ export default {
   width: 100%
   max-width: $content-width
   padding: $padding
+  margin: $padding
   position: relative
 
   &::before,
