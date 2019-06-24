@@ -52,6 +52,7 @@ export default {
   display: flex
   flex-direction: column
   // height: 0 // fix vertical stretch in IE
+  overflow-x: hidden
   min-height: 100vh
   padding: #{$padding * 3}
 
