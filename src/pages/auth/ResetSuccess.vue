@@ -1,5 +1,5 @@
 <template>
-  <main class="main main--centered main--column">
+  <main class="main form">
     <!-- BEGIN Title -->
     <app-title title="Success" subtitle="Account recovery"/>
     <!--END Title -->

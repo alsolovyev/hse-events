@@ -1,5 +1,5 @@
 <template>
-  <main class="main main--centered main--column">
+  <main class="main form">
     <!-- BEGIN Title -->
     <app-title title="Reset Password" subtitle="Account recovery"/>
     <!--END Title -->
@@ -10,7 +10,7 @@
     </p>
 
     <!-- BEGIN Form -->
-    <form @submit.prevent="onSubmit" class="form">
+    <form @submit.prevent="onSubmit" class="form__wrapper">
       <app-input v-for="(field, index) in fields" :key="index"
         ref="fields"
         :label="field.label"
