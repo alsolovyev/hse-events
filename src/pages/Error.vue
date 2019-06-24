@@ -1,7 +1,7 @@
 <template>
-  <main class="main main--centered">
+  <main class="main error">
     <!-- BEGIN Error -->
-    <div class="error" :data-code="code">
+    <div class="error__inner" :data-code="code">
       <h1 class="error__title" ref="title">
         This is a<br/><span class="pink">{{ code }}</span> page
       </h1>
@@ -64,23 +64,28 @@ export default {
 
 <style lang="sass">
 .error
-  position: relative
-  width: 100%
-  max-width: 300px
-  text-align: center
+  display: flex
+  justify-content: center
+  align-items: center
 
-  &::before
-    content: attr(data-code)
-    // width: 100%
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    z-index: -1
-    font: 700 300px/.8 'Poppins', sans-serif
-    color: $grey
-    pointer-events: none
-    user-select: none
+  &__inner
+    position: relative
+    width: 100%
+    max-width: 300px
+    text-align: center
+
+    &::before
+      content: attr(data-code)
+      // width: 100%
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      z-index: -1
+      font: 700 300px/.8 'Poppins', sans-serif
+      color: $grey
+      pointer-events: none
+      user-select: none
 
   &__title
     font-size: 50px

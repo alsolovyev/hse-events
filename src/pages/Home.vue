@@ -1,6 +1,6 @@
 <template>
-  <main class="main main--centered">
-    <div class="hero">
+  <main class="main hero">
+    <div class="hero__inner">
       <!-- BEGIN Title -->
       <span class="hero__line" ref="line"></span>
       <p class="hero__subtitle"><span class="r-text" ref="subtitle">now about business</span></p>
@@ -54,38 +54,43 @@ export default {
 
 <style lang="sass">
 .hero
-  width: 100%
-  max-width: $content-width
-  padding: $padding
-  margin: $padding
-  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
 
-  &::before,
-  &::after
-    content: ''
-    position: absolute
-    z-index: -1
-
-  &::before
-    width: 100px
-    height: 100px
-    bottom: #{-$padding}
-    left: #{-$padding}
-    background-image: $linear-gradient, $linear-gradient
-    background-position: 0 0, $padding 100%
-    background-size: $padding 102.5%, 100% $padding
-    background-repeat: repeat-y, no-repeat
-
-  &::after
+  &__inner
     width: 100%
-    max-width: 200px
-    height: 75%
-    top: #{-$padding}
-    right: #{-$padding}
-    background-image: $linear-gradient, $linear-gradient
-    background-position: 100% 0, 100% $padding
-    background-size: 102.8% $padding, $padding 100%
-    background-repeat: repeat-x, no-repeat
+    max-width: $content-width
+    padding: $padding
+    margin: $padding
+    position: relative
+
+    &::before,
+    &::after
+      content: ''
+      position: absolute
+      z-index: -1
+
+    &::before
+      width: 100px
+      height: 100px
+      bottom: #{-$padding}
+      left: #{-$padding}
+      background-image: $linear-gradient, $linear-gradient
+      background-position: 0 0, $padding 100%
+      background-size: $padding 102.5%, 100% $padding
+      background-repeat: repeat-y, no-repeat
+
+    &::after
+      width: 100%
+      max-width: 200px
+      height: 75%
+      top: #{-$padding}
+      right: #{-$padding}
+      background-image: $linear-gradient, $linear-gradient
+      background-position: 100% 0, 100% $padding
+      background-size: 102.8% $padding, $padding 100%
+      background-repeat: repeat-x, no-repeat
 
   &__line
     display: block

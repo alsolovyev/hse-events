@@ -1,11 +1,11 @@
 <template>
-  <main class="main main--centered main--column">
+  <main class="main form">
     <!-- BEGIN Title -->
     <app-title title="Create account" subtitle="welcome to hse events"/>
     <!--END Title -->
 
     <!-- BEGIN Form -->
-    <form @submit.prevent="onSubmit" class="form">
+    <form @submit.prevent="onSubmit" class="form__wrapper">
       <app-input v-for="(field, index) in fields" :key="index"
         ref="fields"
         :label="field.label"
