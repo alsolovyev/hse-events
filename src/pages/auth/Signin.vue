@@ -12,6 +12,7 @@
         :type="field.type"
         :mask="field.mask"
         :placeholder="field.placeholder"
+        :isError="field.isError"
         @onChange="value => field.value = value"/>
 
       <!-- BEGIN Submit button -->
@@ -32,7 +33,7 @@
 
     <!-- BEGIN Button -->
     <div ref="btn">
-      <app-button icon="enter" @onClick="onSubmit"/>
+      <app-button :isLoading="isLoading" icon="enter" @onClick="onSubmit"/>
     </div>
     <!-- END Button -->
   </main>
@@ -53,10 +54,10 @@ export default {
         { name: 'signup',         to: { name: 'signup' } },
         { name: 'reset password', to: { name: 'reset' } },
       ],
-      fields: [
-        { label: 'Username', type: 'text',    mask: "", placeholder: "", value: null},
-        { label: 'Password', type: 'password', mask: "", placeholder: "", value: null}
-      ]
+      fields: {
+        username: { label: 'Username', type: 'text',     isError: false, mask: "", placeholder: "", value: null},
+        password: { label: 'Password', type: 'password', isError: false, mask: "", placeholder: "", value: null}
+      }
     }
   },
   methods: {
@@ -64,11 +65,60 @@ export default {
      * Submit form or press button
      */
     onSubmit() {
-      const params = {
-        code: 503,
-        message: 'We\'re undergoing a bit of scheduled maintenance. Sorry for the inconvenience. We\'ll be back and running as fast as possible.'
+      // Change error status to false
+      for(let key in this.fields) {
+        this.fields[key].isError = false
       }
-      this.$router.push({ name: 'error', params })
+
+      // Collect user information
+      const credentials = {
+        // username: this.fields.username.value,
+        // password: this.fields.password.value
+        username: 'nklvmaxim@gmail.com',
+        password: '3714988hh'
+      }
+
+      // Request
+      this.$store.dispatch('USER_SIGNIN', credentials)
+        .then(user => {
+          // ... redirect to dashboard
+          console.log('Signin: ', user);
+          console.log('From store: ', this.$store.getters.getUser);
+          console.log('From store: ', this.$store.getters.getASD);
+        })
+        .catch(error => {
+          switch (error.status) {
+            case 400:
+              for(let key in error.data) {
+                if(this.fields.hasOwnProperty(key)) {
+                  this.fields[key].isError = true
+                  this.$notify({
+                    type: 'error',
+                    title: `Error field: <span class="pink">${key}</span>`,
+                    text: error.data[key][0]
+                  })
+                } else {
+                  this.$notify({
+                    type: 'error',
+                    title: 'Wrong credentials',
+                    text: error.data[key][0]
+                  })
+                }
+              }
+              break
+
+            default:
+              this.$router.push({ name: 'error', params: {
+                code: error.status,
+                message: `${error.statusText}. We're undergoing a bit of scheduled maintenance. Sorry for the inconvenience. We'll be back and running as fast as possible.`
+              } })
+          }
+        })
+    }
+  },
+  computed: {
+    isLoading() {
+      return this.$store.getters.authStatus === 'loading'
     }
   },
   mounted() {

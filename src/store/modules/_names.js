@@ -1,0 +1,10 @@
+// Names for 'app' module
+export const SET_THEME    = 'SET_THEME'
+export const TOGGLE_MODAL = 'TOGGLE_MODAL'
+// Names for 'user' module
+export const USER_SIGNIN  = 'USER_SIGNIN'
+export const USER_SIGNUP  = 'USER_SIGNUP'
+export const USER_LOGOUT  = 'USER_LOGOUT'
+export const AUTH_REQUEST = 'AUTH_REQUEST'
+export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const AUTH_ERROR   = 'AUTH_ERROR'
