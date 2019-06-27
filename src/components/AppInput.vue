@@ -1,5 +1,6 @@
 <template>
-  <div class="input" :class="{ 'input--in-focus':inFocus }">
+  <div class="input" :class="{ 'input--in-focus':inFocus, 'input--error':isError }">
+    <!-- BEGIN Label -->
     <label class="input__label" :for="filterLabel">{{ `${label.trim()}:` }}</label>
     <input class="input__field"
       ref="field"
@@ -64,6 +65,10 @@ export default {
       type: String,
       default: ''
     },
+    isError: {
+      type: Boolean,
+      default: false
+    },
     mask: {
       type: String,
       default: ''
@@ -98,8 +103,11 @@ export default {
       color: $blue
 
   &--error
+    .input__label
+      color: $pink
     &::after
       background: $pink
+      transform: translate3d(0, 0, 0) scale3d(1, 1, 1)
 
   &__label
     font-size: 12px
