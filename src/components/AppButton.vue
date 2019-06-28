@@ -8,6 +8,7 @@
 import home from '@/assets/icons/home.svg'
 import enter from '@/assets/icons/enter.svg'
 import list from '@/assets/icons/list.svg'
+import logout from '@/assets/icons/logout.svg'
 
 export default {
   name: 'AppButton',
@@ -27,7 +28,7 @@ export default {
       default: false
     }
   },
-  components: { home, enter, list }
+  components: { home, enter, list, logout }
 }
 </script>
 
