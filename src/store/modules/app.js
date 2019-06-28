@@ -1,6 +1,8 @@
 /**
  * Vuex module which stores common app settings
  */
+import { SET_THEME, TOGGLE_MODAL } from './_names'
+
 const state = {
   theme: 'blue',
   isModalOpen: false
@@ -12,8 +14,8 @@ const getters = {
 }
 
 const mutations = {
-  SET_THEME: (state, value) => state.theme = value,
-  TOGGLE_MODAL: (state, value) => value === undefined || typeof value !== "boolean"
+  [SET_THEME]:    (state, value) => state.theme = value,
+  [TOGGLE_MODAL]: (state, value) => value === undefined || typeof value !== "boolean"
       ? state.isModalOpen = !state.isModalOpen
       : state.isModalOpen = value
 }
