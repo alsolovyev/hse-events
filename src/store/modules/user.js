@@ -31,7 +31,7 @@ const mutations = {
   },
   [AUTH_ERROR]: state => state.authStatus = 'error',
   [AUTH_LOGOUT]: state => {
-    state.authStatus = 'success'
+    state.authStatus = 'logged-out'
     state.token      = ''
     state.user       = null
   }
