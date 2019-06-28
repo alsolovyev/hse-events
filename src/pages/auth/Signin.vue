@@ -82,11 +82,12 @@ export default {
       this.$store.dispatch('USER_SIGNIN', credentials)
         .then(user => {
           // ... redirect to dashboard
-          console.log('Signin: ', user);
-          console.log('From store: ', this.$store.getters.getUser);
-          console.log('From store: ', this.$store.getters.getASD);
+          // console.log('Signin: ', user);
+          // console.log('From store: ', this.$store.getters.getUser);
           this.$router.push({ name: 'dashboard', params: {
-            username: `${user.first_name}-${user.last_name}`.toLowerCase() }
+              // username: `#${user.email.split('@')[0]}`
+              username: user.email.split('@')[0]
+            }
           })
         })
         .catch(error => {
