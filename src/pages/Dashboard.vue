@@ -8,7 +8,10 @@
       <sub-nav @onClick="changeContent" :links="links"/>
       <hr>
 
-      <app-button :isLoading="isLoading" icon="logout" @onClick="$store.dispatch('USER_LOGOUT')"/>
+      <app-button
+        :isLoading="$store.getters.authStatus === 'loading'"
+        icon="logout"
+        @onClick="$store.dispatch('USER_LOGOUT')"/>
     </div>
     <!-- END Aside -->
 
@@ -27,10 +30,11 @@ export default {
   name: 'Dashboard',
   data() {
     return {
+      component: EventsUpcoming,
       links: [
-        { name: 'Edit profile', to: '123' },
-        { name: 'Upcompin event', to: '123' },
-        { name: 'Polls', to: '123' }
+        { name: 'Edit profile',    to: '123' },
+        { name: 'Upcoming events',  to: '123' },
+        { name: 'Event schedule', to: '123' }
       ]
     }
   },
@@ -38,12 +42,7 @@ export default {
     editProfile() { console.log('edit profile') },
     changeContent() { console.log('change content') }
   },
-  computed: {
-    isLoading() {
-      return this.$store.getters.authStatus === 'loading'
-    }
-  },
-  components: { UserProfile, SubNav, AppButton }
+  components: { UserProfile, SubNav, AppButton, EventsUpcoming }
 }
 </script>
 

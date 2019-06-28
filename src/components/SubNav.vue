@@ -4,7 +4,11 @@
       v-for="(link, index) in links"
       :key="index"
       :data-index="`0${index + 1}`">
-      <button ref="btns" class="subnav__btn" @click="onClick(link.to, index)">{{link.name}}</button>
+      <!-- Fix init active class -->
+      <button class="subnav__btn"
+        @click="onClick(link.to, index)"
+        :class="{ 'subnav__btn--is-active': index === 1 }"
+        ref="btns">{{link.name}}</button>
     </li>
   </ul>
 </template>
@@ -60,7 +64,7 @@ export default {
       width: $padding
       height: 1px
       margin: 0 10px
-      background: rgba($black, .3)
+      background: rgba($black, .2)
       +br(4)
       transition: width .3s
     &:hover,
