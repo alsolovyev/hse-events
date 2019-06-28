@@ -32,7 +32,10 @@
 
     <!-- BEGIN Button -->
     <div ref="btn">
-      <app-button icon="enter" @onClick="onSubmit"/>
+      <app-button
+        :isLoading="$store.getters.authStatus === 'loading'"
+        icon="enter"
+        @onClick="onSubmit"/>
     </div>
     <!-- END Button -->
   </main>

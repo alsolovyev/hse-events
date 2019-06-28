@@ -33,7 +33,10 @@
 
     <!-- BEGIN Button -->
     <div ref="btn">
-      <app-button :isLoading="isLoading" icon="enter" @onClick="onSubmit"/>
+      <app-button
+        :isLoading="$store.getters.authStatus === 'loading'"
+        icon="enter"
+        @onClick="onSubmit"/>
     </div>
     <!-- END Button -->
   </main>
@@ -118,11 +121,6 @@ export default {
               } })
           }
         })
-    }
-  },
-  computed: {
-    isLoading() {
-      return this.$store.getters.authStatus === 'loading'
     }
   },
   mounted() {
