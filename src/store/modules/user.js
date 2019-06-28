@@ -58,7 +58,6 @@ const actions = {
         // Save data to the store(vuex)
         commit(AUTH_SUCCESS, {token, user})
 
-        // Add token to the
         axios.defaults.headers.common['Authorization'] = token
 
         resolve(user)
