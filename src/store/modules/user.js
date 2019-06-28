@@ -5,13 +5,15 @@
 /* eslint-disable */
 
 import axios from 'axios'
-import { USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR } from './_names'
+import { USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './_names'
+import router from '@/router'
+import Vue from 'vue'
 import api from '@/config/api'
 
 const state = {
-  token: localStorage.getItem('user-token') || '',
+  token     : localStorage.getItem('user-token') || '',
   authStatus: '',
-  user: null
+  user      : null
 }
 
 const getters = {
@@ -24,10 +26,15 @@ const mutations = {
   [AUTH_REQUEST]: state => state.authStatus = 'loading',
   [AUTH_SUCCESS]: (state, {token, user}) => {
     state.authStatus = 'success'
-    state.token = token
-    state.user = user
+    state.token      = token
+    state.user       = user
   },
-  [AUTH_ERROR]: state => state.authStatus = 'error'
+  [AUTH_ERROR]: state => state.authStatus = 'error',
+  [AUTH_LOGOUT]: state => {
+    state.authStatus = 'success'
+    state.token      = ''
+    state.user       = null
+  }
 }
 
 const actions = {
@@ -35,7 +42,7 @@ const actions = {
     commit(AUTH_REQUEST)
     axios.post(api.signin, credentials)
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         const token = response.data.token,
               user  = Object.keys(response.data).reduce((obj, key) => {
                         if( key !== 'event' &&
@@ -45,10 +52,13 @@ const actions = {
                         return obj
                       }, {})
 
-        localStorage.setItem('token', token)
+        // Save token
+        localStorage.setItem('user-token', token)
 
+        // Save data to the store(vuex)
         commit(AUTH_SUCCESS, {token, user})
 
+        // Add token to the
         axios.defaults.headers.common['Authorization'] = token
 
         resolve(user)
@@ -58,7 +68,30 @@ const actions = {
         commit(AUTH_ERROR)
         reject(error.response)
       })
-  })
+  }),
+
+  [USER_LOGOUT]: ({commit}) => {
+    // ToDo: remove token from server???
+
+    // Set status to loading
+    commit(AUTH_REQUEST)
+
+    // Remove token
+    localStorage.removeItem('user-token')
+
+    // Clear store(vuex)
+    commit(AUTH_LOGOUT)
+
+    // Show notification
+    Vue.notify({
+      type: 'success',
+      title: 'Success',
+      text: 'You are successfully logged out'
+    })
+
+    // Redirect user to the homepage
+    router.push({ name: 'home' })
+  }
 }
 
 export default { state, getters, mutations, actions }

@@ -8,7 +8,7 @@
       <sub-nav @onClick="changeContent" :links="links"/>
       <hr>
 
-      <app-button icon="logout"/>
+      <app-button :isLoading="isLoading" icon="logout" @onClick="$store.dispatch('USER_LOGOUT')"/>
     </div>
     <!-- END Aside -->
 
@@ -37,6 +37,11 @@ export default {
   methods: {
     editProfile() { console.log('edit profile') },
     changeContent() { console.log('change content') }
+  },
+  computed: {
+    isLoading() {
+      return this.$store.getters.authStatus === 'loading'
+    }
   },
   components: { UserProfile, SubNav, AppButton }
 }

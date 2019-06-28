@@ -85,6 +85,9 @@ export default {
           console.log('Signin: ', user);
           console.log('From store: ', this.$store.getters.getUser);
           console.log('From store: ', this.$store.getters.getASD);
+          this.$router.push({ name: 'dashboard', params: {
+            username: `${user.first_name}-${user.last_name}`.toLowerCase() }
+          })
         })
         .catch(error => {
           switch (error.status) {
