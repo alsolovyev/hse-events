@@ -54,11 +54,10 @@ const actions = {
 
         // Save token
         localStorage.setItem('user-token', token)
+        axios.defaults.headers.common['Authorization'] = `Token ${token}`
 
         // Save data to the store(vuex)
         commit(AUTH_SUCCESS, {token, user})
-
-        axios.defaults.headers.common['Authorization'] = `Token ${token}`
 
         resolve(user)
       })
@@ -77,6 +76,7 @@ const actions = {
 
     // Remove token
     localStorage.removeItem('user-token')
+    delete axios.defaults.headers.common['Authorization']
 
     // Clear store(vuex)
     commit(AUTH_LOGOUT)
