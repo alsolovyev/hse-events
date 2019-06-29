@@ -5,7 +5,7 @@
     <!-- END Title -->
 
     <!-- BEGIN Timeline -->
-    <events-timeline ref="tl" v-if="events.length > 0" :events="events"/>
+    <event-timeline ref="tl" v-if="events.length > 0" :events="events"/>
     <!-- END Timeline -->
 
     <!-- BEGIN Empty -->
@@ -18,7 +18,7 @@
 import { TimelineLite } from 'gsap'
 import moment from 'moment'
 import AppTitle from '@/components/ui/AppTitle'
-import EventsTimeline from '@/components/event/EventsTimeline'
+import EventTimeline from '@/components/event/EventTimeline'
 
 export default {
   name: 'Events',
@@ -103,7 +103,7 @@ export default {
   beforeDestroy() {
     clearInterval(this.interval)
   },
-  components: { AppTitle, EventsTimeline }
+  components: { AppTitle, EventTimeline }
 }
 </script>
 

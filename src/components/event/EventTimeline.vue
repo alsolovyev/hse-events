@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'EventsTimeline',
+  name: 'EventTimeline',
   methods: {
     hideItems(index) {
       for(let i = 0, len = this.$refs.event.length; i < len; i++) {
