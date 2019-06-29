@@ -32,7 +32,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  /** Change app theme*/
+  /** Change app theme */
   store.commit('SET_THEME', to.meta.theme)
   next()
 })

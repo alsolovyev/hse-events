@@ -62,4 +62,38 @@ export default {
 }
 </script>
 
-<style lang="sass">/* @/assets/sass/components/_link.sass */</style>
+<style lang="sass">
+.link
+  display: inline-block
+  position: relative
+  overflow: hidden
+
+  &__name
+    display: inline-block
+    position: relative
+    +fix-blurry
+    transition: transform .3s
+
+    &--blue
+      &::after
+        color: $blue
+    &--pink
+      &::after
+        color: $pink
+    &--lime
+      &::after
+        color: $lime
+
+    &::after
+      content: attr(data-name)
+      position: absolute
+      top: 100%
+      left: 0
+      +fix-blurry
+
+  &.router-link-exact-active,
+  &:focus,
+  &:hover
+    .link__name
+      transform: translate3d(0, -100%, 0)
+</style>

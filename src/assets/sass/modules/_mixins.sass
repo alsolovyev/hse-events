@@ -35,16 +35,35 @@
 =check($opacity: .1)
   background-color: rgba(royalblue, $opacity)
 
-=hide-text
+=hidetext
   font: 0/0 a
   text-shadow: none
   color: transparent
-
-=hidetext
-  +hide-text
 
 =clr
   &:after
     content: " "
     display: table
     clear: both
+
+=br($radius: 4)
+  border-radius: $radius + px
+
+=fix-blurry
+  -webkit-font-smoothing: subpixel-antialiased
+  backface-visibility: hidden
+
+=center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+=prevent-user
+  pointer-events: none
+  user-select: none
+
+=text-overflow
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
