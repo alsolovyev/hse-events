@@ -68,25 +68,23 @@ export default {
      * Submit form or press button
      */
     onSubmit() {
+      // Collect user information
+      const credentials = {
+        // For testing
+        username: 'nklvmaxim@gmail.com',
+        password: '3714988hh'
+      }
+
       // Change error status to false
       for(let key in this.fields) {
         this.fields[key].isError = false
-      }
-
-      // Collect user information
-      const credentials = {
-        // username: this.fields.username.value,
-        // password: this.fields.password.value
-        username: 'nklvmaxim@gmail.com',
-        password: '3714988hh'
+        // credentials[key] = this.fields[key].value
       }
 
       // Request
       this.$store.dispatch('USER_SIGNIN', credentials)
         .then(user => {
-          // ... redirect to dashboard
-          // console.log('Signin: ', user);
-          // console.log('From store: ', this.$store.getters.getUser);
+          // Redirect to user page
           this.$router.push({ name: 'dashboard', params: {
               // username: `#${user.email.split('@')[0]}`
               username: user.email.split('@')[0]
