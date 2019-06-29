@@ -1,7 +1,7 @@
 /**
  * Vuex module which stores common app settings
  */
-import { SET_THEME, TOGGLE_MODAL } from './_names'
+import { SET_THEME, TOGGLE_MODAL } from './_variables'
 
 const state = {
   theme: 'blue',

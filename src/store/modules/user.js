@@ -5,7 +5,7 @@
 /* eslint-disable */
 
 import axios from 'axios'
-import { USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './_names'
+import { USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './_variables'
 import router from '@/router'
 import Vue from 'vue'
 import api from '@/config/api-endpoints'
