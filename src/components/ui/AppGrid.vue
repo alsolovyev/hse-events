@@ -56,8 +56,8 @@ export default {
   &::before
     content: attr(data-index)
     display: inline-block
-    transform: translateX(-3px) rotate(270deg)
-    font-size: 12px
+    transform: rotate(270deg)
+    font-size: 10px
     font-weight: 700
     line-height: .8
 
@@ -66,6 +66,9 @@ export default {
     width: 12px
     height: 1px
     margin: 24px 0 20px 0
-    background: $black
+    background: rgba($black, .5)
     +br(4)
+
+  .link
+    line-height: 1.3
 </style>
