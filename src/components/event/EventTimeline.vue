@@ -2,8 +2,6 @@
   <ul class="timeline">
     <li class="timeline__item" v-for="(event, i) in events" :key="i"
       ref="event"
-      @mouseenter="hideItems(i)"
-      @mouseleave="showItems(i)"
       :class="{ 'timeline__item--in-progress': i % 3 === 1 }">
       <!-- BEGIN On air -->
       <span class="timeline__on-air" title="Ongoing events"></span>
@@ -37,18 +35,6 @@
 <script>
 export default {
   name: 'EventTimeline',
-  methods: {
-    hideItems(index) {
-      for(let i = 0, len = this.$refs.event.length; i < len; i++) {
-        if(index !== i) this.$refs.event[i].classList.add('timeline__item--is-hidden')
-      }
-    },
-    showItems() {
-      for(let i = 0, len = this.$refs.event.length; i < len; i++) {
-        this.$refs.event[i].classList.remove('timeline__item--is-hidden')
-      }
-    }
-  },
   props: {
     events: {
       type: Array,
@@ -63,6 +49,14 @@ export default {
   width: 100%
   max-width: 500px
   margin: #{$padding * 2} 0
+
+  &:hover
+    .timeline__item:not(:hover)
+      opacity: .3
+      border-color: rgba($black, .3)
+      .timeline__title::before
+          background: $white
+          border-color: rgba($black, .3)
 
   &__item
     position: relative
@@ -85,12 +79,6 @@ export default {
             background: $lime
             border-color: $lime
 
-    &--is-hidden
-      opacity: .3 !important
-      border-color: rgba($black, .3)
-      .timeline__title::before
-          background: $white
-          border-color: rgba($black, .3)
 
   &__title
     position: relative
