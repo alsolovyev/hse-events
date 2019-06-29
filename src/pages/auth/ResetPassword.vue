@@ -45,10 +45,10 @@
 
 <script>
 import { TimelineLite } from 'gsap'
-import AppTitle from '@/components/AppTitle'
-import AppLink from '@/components/AppLink'
-import AppInput from '@/components/AppInput'
-import AppButton from '@/components/AppButton'
+import AppTitle from '@/components/ui/AppTitle'
+import AppLink from '@/components/ui/AppLink'
+import AppInput from '@/components/ui/AppInput'
+import AppButton from '@/components/ui/AppButton'
 
 export default {
   name: 'Signin',

@@ -24,13 +24,12 @@
 <script>
 import UserProfile from '@/components/UserProfile'
 import SubNav from '@/components/SubNav'
-import AppButton from '@/components/AppButton'
+import AppButton from '@/components/ui/AppButton'
 
 export default {
   name: 'Dashboard',
   data() {
     return {
-      component: EventsUpcoming,
       links: [
         { name: 'Edit profile',    to: '123' },
         { name: 'Upcoming events',  to: '123' },
@@ -42,7 +41,7 @@ export default {
     editProfile() { console.log('edit profile') },
     changeContent() { console.log('change content') }
   },
-  components: { UserProfile, SubNav, AppButton, EventsUpcoming }
+  components: { UserProfile, SubNav, AppButton }
 }
 </script>
 

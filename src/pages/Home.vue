@@ -13,7 +13,7 @@
       <!-- END Description -->
 
       <!-- BEGIN Grid -->
-      <flex-grid ref="grid" :items="sortedLinks"/>
+      <app-grid ref="grid" :items="sortedLinks"/>
       <!-- END Grid -->
     </div>
   </main>
@@ -21,7 +21,7 @@
 
 <script>
 import { TimelineLite } from 'gsap'
-import FlexGrid from '@/components/FlexGrid'
+import AppGrid from '@/components/ui/AppGrid'
 
 export default {
   name: 'Home',
@@ -48,7 +48,7 @@ export default {
     timeline.fromTo(this.$refs.desc, .5, { x: 20, autoAlpha: 0 }, { x: 0, autoAlpha: 1 }, '-=0.3')
     timeline.staggerFromTo(this.$refs.grid.$refs.cell, .5, { x: -20, autoAlpha: 0 }, { x: 0, autoAlpha: 1 }, .05, '-=0.3')
   },
-  components: { FlexGrid }
+  components: { AppGrid }
 }
 </script>
 

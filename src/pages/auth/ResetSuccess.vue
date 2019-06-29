@@ -19,8 +19,8 @@
 
 <script>
 import { TimelineLite } from 'gsap'
-import AppTitle from '@/components/AppTitle'
-import AppButton from '@/components/AppButton'
+import AppTitle from '@/components/ui/AppTitle'
+import AppButton from '@/components/ui/AppButton'
 
 export default {
   name: 'ResetSuccess',

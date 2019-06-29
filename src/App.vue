@@ -33,10 +33,10 @@
 
 <script>
 import sayHello from '@/utils/sayHello'
-import AppBackground from '@/components/AppBackground'
-import AppHeader from '@/components/AppHeader'
-import AppFooter from '@/components/AppFooter'
-import AppModal from '@/components/AppModal'
+import AppBackground from '@/components/layout/AppBackground'
+import AppHeader from '@/components/layout/AppHeader'
+import AppFooter from '@/components/layout/AppFooter'
+import AppModal from '@/components/layout/AppModal'
 
 export default {
   name: 'app',

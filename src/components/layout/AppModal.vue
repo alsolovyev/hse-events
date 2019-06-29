@@ -21,7 +21,7 @@
         <li class="modal__item"
           v-for="(link, index) in links" :key="index" :data-index="`0${index + 1}`">
           <!-- <a :href="link.href" class="pink">{{ link.name }}</a> -->
-          <external-link classes="pink" :href="link.href" :name="link.name" />
+          <app-link :isInternal="false" classes="pink" :href="link.href" :name="link.name" />
         </li>
       </ul>
     </div>
@@ -35,7 +35,7 @@
 
 <script>
 import { TimelineLite } from 'gsap'
-import ExternalLink from '@/components/ExternalLink'
+import AppLink from '@/components/ui/AppLink'
 
 export default {
   name: 'AppModal',
@@ -74,7 +74,7 @@ export default {
     this.timeline.fromTo(this.$refs.desc, .5, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1 }, '-=0.1')
     this.timeline.staggerFromTo(this.$refs.modal.querySelectorAll('.modal__item'), .5, { x: 20, autoAlpha: 0 }, { x: 0, autoAlpha: 1 }, .2, '-=0.3')
   },
-  components: { ExternalLink }
+  components: { AppLink }
 }
 </script>
 

@@ -1,5 +1,21 @@
 <template>
+  <!-- BEGIN Internal link -->
+  <router-link class="link"
+    v-if="isInternal"
+    :class="classes"
+    :to="to"
+    :data-name="name">
+    <!-- BEGIN Label -->
+    <span class="link__name"
+      :data-name="name"
+      :class="`link__name--${this.$store.getters.getTheme}`">{{ name }}</span>
+    <!-- END Label -->
+  </router-link>
+  <!-- END Internal link -->
+
+  <!-- BEGIN External link -->
   <a class="link"
+    v-else
     target="_black"
     :class="classes"
     :href="href || 'https://alsolovyev.github.io/'">
@@ -9,6 +25,7 @@
       :class="`link__name--${this.$store.getters.getTheme}`">{{ name }}</span>
     <!-- END Label -->
   </a>
+  <!-- END External link -->
 </template>
 
 <script>
@@ -16,7 +33,7 @@
  * ToDo: add a class based on the theme color
  */
 export default {
-  name: 'ExternalLink',
+  name: 'AppLink',
   computed: {
     theme: function() { return this.$store.getters.getTheme }
   },
@@ -25,6 +42,10 @@ export default {
       type: String,
       default: 'Link'
     },
+    to: {
+      type: Object,
+      default: () => { return { name: 'home' } }
+    },
     href: {
       type: String,
       default: 'https://alsolovyev.github.io/'
@@ -32,6 +53,10 @@ export default {
     classes: {
       type: String,
       default: ''
+    },
+    isInternal: {
+      type: Boolean,
+      default: true
     }
   }
 }

@@ -8,8 +8,8 @@
 
 <script>
 import axios from 'axios'
-import AppPreloader from '@/components/AppPreloader'
-import AppEvent from '@/components/AppEvent'
+import AppPreloader from '@/components/ui/AppPreloader'
+import AppEvent from '@/components/event/AppEvent'
 
 export default {
   name: 'Event',

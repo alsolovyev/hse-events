@@ -17,8 +17,8 @@
 <script>
 import { TimelineLite } from 'gsap'
 import moment from 'moment'
-import AppTitle from '@/components/AppTitle'
-import EventsTimeline from '@/components/EventsTimeline'
+import AppTitle from '@/components/ui/AppTitle'
+import EventsTimeline from '@/components/event/EventsTimeline'
 
 export default {
   name: 'Events',

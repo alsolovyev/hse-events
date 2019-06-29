@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex-grid">
+  <ul class="grid">
     <li class="cell"
       v-for="(item, index) in items.slice(0, 3)"
       :key="index"
@@ -28,10 +28,10 @@
  * Application list.
  * Max items: 3
  */
-import AppLink from '@/components/AppLink'
+import AppLink from '@/components/ui/AppLink'
 
 export default {
-  name: 'FlexGrid',
+  name: 'AppGrid',
   props: {
     items: {
       type: Array,
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="sass">
-.flex-grid
+.grid
   display: flex
   flex-flow: row wrap
   justify-content: space-between

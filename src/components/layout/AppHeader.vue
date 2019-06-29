@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import AppLink from '@/components/AppLink'
+import AppLink from '@/components/ui/AppLink'
 import IconRocket from '@/assets/icons/rocket.svg'
 
 export default {

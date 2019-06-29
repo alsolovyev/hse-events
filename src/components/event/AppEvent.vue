@@ -76,7 +76,7 @@
 
 <script>
 import { TimelineLite } from 'gsap'
-import AppButton from '@/components/AppButton'
+import AppButton from '@/components/ui/AppButton'
 
 export default {
   name: 'AppEvent',
