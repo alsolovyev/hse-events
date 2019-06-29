@@ -52,7 +52,7 @@ export default {
 
   &:hover
     .timeline__item:not(:hover)
-      opacity: .3
+      opacity: .3 !important // cuz reveal animation set opacity inline
       border-color: rgba($black, .3)
       .timeline__title::before
           background: $white
