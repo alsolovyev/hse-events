@@ -62,7 +62,7 @@ const actions = {
         resolve(user)
       })
       .catch(error => {
-        console.log(error)
+        // console.log(error)
         commit(AUTH_ERROR)
         reject(error.response)
       })
@@ -90,7 +90,24 @@ const actions = {
 
     // Redirect user to the homepage
     router.push({ name: 'home' })
-  }
+  },
+
+  [USER_SIGNUP]: ({commit, dispatch}, credentials) => new Promise((resolve, reject) => {
+    commit(AUTH_REQUEST)
+    axios.post(api.signup, credentials)
+      .then(response => {
+        // Save token
+        // localStorage.setItem('user-token', token)
+        // axios.defaults.headers.common['Authorization'] = `Token ${token}`
+        // Save data to the store(vuex)
+        // commit(AUTH_SUCCESS, {token, user})
+        resolve(response)
+      })
+      .catch(error => {
+        commit(AUTH_ERROR)
+        reject(error.response)
+      })
+  })
 }
 
 export default { state, getters, mutations, actions }

@@ -56,15 +56,15 @@ export default {
         { name: 'signin',         to: { name: 'signin' } },
         { name: 'reset password', to: { name: 'reset' } },
       ],
-      fields: [
-        { label: 'First name',  type: 'text',     mask: "",     placeholder: "",           value: null},
-        { label: 'Last name',   type: 'text',     mask: "",     placeholder: "",           value: null},
-        { label: 'Email',       type: 'email',    mask: "",     placeholder: "",           value: null},
-        { label: 'Birthday',    type: 'text',     mask: "date", placeholder: "12.31.2019", value: null},
-        { label: 'Password',    type: 'password', mask: "",     placeholder: "",           value: null},
-        { label: 'Re-password', type: 'password', mask: "",     placeholder: "",           value: null},
-        { label: 'Event-code',  type: 'text',     mask: "",     placeholder: "",           value: null}
-      ]
+      fields: {
+        first_name: { label: 'First name',  type: 'text',     isError: false, mask: "",     placeholder: "",           value: null},
+        last_name:  { label: 'Last name',   type: 'text',     isError: false, mask: "",     placeholder: "",           value: null},
+        email:      { label: 'Email',       type: 'email',    isError: false, mask: "",     placeholder: "",           value: null},
+        dob:        { label: 'Birthday',    type: 'text',     isError: false, mask: "date", placeholder: "12.31.2019", value: null},
+        password:   { label: 'Password',    type: 'password', isError: false, mask: "",     placeholder: "",           value: null},
+        repassword: { label: 'Re-password', type: 'password', isError: false, mask: "",     placeholder: "",           value: null},
+        code:       { label: 'Event-code',  type: 'text',     isError: false, mask: "",     placeholder: "",           value: null}
+      }
     }
   },
   methods: {
@@ -72,11 +72,35 @@ export default {
      * Submit form or press button
      */
     onSubmit() {
-      const params = {
-        code: 503,
-        message: 'We\'re undergoing a bit of scheduled maintenance. Sorry for the inconvenience. We\'ll be back and running as fast as possible.'
+      // Collect user information
+      const credentials = {  }
+
+      // Change error status to false
+      for(let key in this.fields) {
+        this.fields[key].isError = false
+        credentials[key] = this.fields[key].value
       }
-      this.$router.push({ name: 'error', params })
+
+      // Request
+      this.$store.dispatch('USER_SIGNUP', credentials)
+        .then(user => {
+          console.log(user)
+          // Redirect to user page
+          // this.$router.push({ name: 'dashboard', params: {
+              // username: `#${user.email.split('@')[0]}`
+              // username: user.email.split('@')[0]
+            // }
+          // })
+        })
+        .catch(error => {
+          switch (error.code) {
+            default:
+              this.$router.push({ name: 'error', params: {
+                code: error.status,
+                message: `${error.statusText}. We're undergoing a bit of scheduled maintenance. Sorry for the inconvenience. We'll be back and running as fast as possible.`
+              } })
+          }
+        })
     }
   },
   mounted() {
