@@ -21,4 +21,4 @@ yarn-error.log*
 *.sw?
 
 hse-events.md
-src/config/users.js
+/src/config/users.js
