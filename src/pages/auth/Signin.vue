@@ -10,9 +10,9 @@
         ref="fields"
         :label="field.label"
         :type="field.type"
+        :isError="field.isError"
         :mask="field.mask"
         :placeholder="field.placeholder"
-        :isError="field.isError"
         @onChange="value => field.value = value"/>
 
       <!-- BEGIN Submit button -->
@@ -34,7 +34,7 @@
     <!-- BEGIN Button -->
     <div ref="btn">
       <app-button
-        :isLoading="$store.getters.authStatus === 'loading'"
+        :isLoading="$store.getters.getStatus === 'loading'"
         icon="enter"
         @onClick="onSubmit"/>
     </div>
@@ -48,6 +48,8 @@ import AppTitle from '@/components/ui/AppTitle'
 import AppLink from '@/components/ui/AppLink'
 import AppInput from '@/components/ui/AppInput'
 import AppButton from '@/components/ui/AppButton'
+
+import { OLD } from '@/config/users'
 
 export default {
   name: 'Signin',
@@ -69,11 +71,7 @@ export default {
      */
     onSubmit() {
       // Collect user information
-      const credentials = {
-        // For testing
-        username: 'nklvmaxim@gmail.com',
-        password: '3714988hh'
-      }
+      const credentials = {...OLD}
 
       // Change error status to false
       for(let key in this.fields) {

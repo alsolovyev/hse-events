@@ -1,15 +1,16 @@
 <template>
   <section class="user">
     <div class="user__avatar"
-      style="background-image: url(https://capella.pics/fb492161-6009-4fb9-a6ad-082f2b58b575.jpg)">
+      :style="{ 'background-image': `url(${user.avatar_url})` }">
         <button class="user__btn"
           title="Edit profile"
           @click="$emit('onClick')"><icon-pen/></button>
       </div>
-    <h1 class="user__name">Solovyev Alekseyasdasd</h1>
+    <h1 class="user__name">{{ `${user.first_name} ${user.last_name}`  }}</h1>
     <ul>
-      <li class="user__info">solovyev.a@icloud.com</li>
-      <li class="user__info">Higher School of Economics asd as d</li>
+      <li class="user__info">{{ user.email }}</li>
+      <li class="user__info">{{ user.university_of_studies }}</li>
+      <li class="user__info">{{ user.company }}</li>
     </ul>
   </section>
 </template>
@@ -19,6 +20,11 @@ import IconPen from '@/assets/icons/pen.svg'
 
 export default {
   name: 'UserProfile',
+  data() {
+    return {
+      user: this.$store.getters.getUser
+    }
+  },
   components: { IconPen }
 }
 </script>

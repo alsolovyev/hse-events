@@ -9,6 +9,6 @@ export const NEW = {
 }
 /** User */
 export const OLD = {
-  email   : 'alexey_admin',
-  password: 'DhAcIfCd!Slo'
+  username: 'janerivaz@gmail.com',
+  password: 'asd123'
 }
