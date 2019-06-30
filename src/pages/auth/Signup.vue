@@ -81,6 +81,9 @@ export default {
         credentials[key] = this.fields[key].value
       }
 
+      // Create valid for django date format(YYYY-MM-DD)
+      if(credentials.dob) credentials.dob = credentials.dob.split('.').reverse().join('-')
+
       // Request
       this.$store.dispatch('USER_SIGNUP', credentials)
         .then(user => {
