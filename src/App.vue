@@ -26,7 +26,7 @@
     <notifications
       classes="noti"
       position="bottom right"
-      :duration="3000"/>
+      :duration="5000"/>
     <!-- END Notification -->
   </div>
 </template>
