@@ -10,6 +10,20 @@ import router from '@/router'
 import Vue from 'vue'
 import api from '@/config/api-endpoints'
 
+/**
+ * clearUserData
+ * Remove unnecessary data from response object
+ * @param {Object} data - response data from server
+ * @return {Object}
+ */
+const clearUserData = data => Object.keys(data).reduce((obj, key) => {
+                                if( key !== 'event' &&
+                                    key !== 'token' &&
+                                    key !== 'android_notification_token' &&
+                                    key !== 'ios_notification_token') obj[key] = data[key]
+                                return obj
+                              }, {})
+
 const state = {
   token     : localStorage.getItem('user-token') || '',
   authStatus: '',
