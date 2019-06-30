@@ -10,6 +10,7 @@
         ref="fields"
         :label="field.label"
         :type="field.type"
+        :isError="field.isError"
         :mask="field.mask"
         :placeholder="field.placeholder"
         @onChange="value => field.value = value"/>
