@@ -16,6 +16,8 @@ import Event from '@/pages/Event'
 import ErrorPage from '@/pages/Error'
 // END Pages
 
+const isAuth = (to, from, next) => store.getters.getStatus === 'logged-in' ? next() : next({ name: 'error' })
+
 const router = new VueRouter({
   mode: 'history',
   routes: [
@@ -26,7 +28,7 @@ const router = new VueRouter({
     { path: '/reset/success', name: 'reset-success', component: ResetSuccess,  meta: { theme: 'blue' } },
     { path: '/events',        name: 'events',        component: Events,        meta: { theme: 'lime' } },
     { path: '/event/:id',     name: 'event',         component: Event,         meta: { theme: 'lime' } },
-    { path: '/:username',     name: 'dashboard',     component: Dashboard,     meta: { theme: 'pink' } },
+    { path: '/:username',     name: 'dashboard',     component: Dashboard,     meta: { theme: 'pink' }, beforeEnter: isAuth },
     { path: '/error',         name: 'error',         component: ErrorPage,     meta: { theme: 'blue' }, alias: '*' }
   ]
 })
