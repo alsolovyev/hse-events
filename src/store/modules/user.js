@@ -58,13 +58,7 @@ const actions = {
       .then(response => {
         // console.log(response.data)
         const token = response.data.token,
-              user  = Object.keys(response.data).reduce((obj, key) => {
-                        if( key !== 'event' &&
-                            key !== 'token' &&
-                            key !== 'android_notification_token' &&
-                            key !== 'ios_notification_token') obj[key] = response.data[key]
-                        return obj
-                      }, {})
+              user  = clearUserData(response.data)
 
         // Save token
         localStorage.setItem('user-token', token)
@@ -110,14 +104,21 @@ const actions = {
     commit(AUTH_REQUEST)
     axios.post(api.signup, credentials)
       .then(response => {
+        // console.log(response.data)
+        const token = response.data.token,
+              user  = clearUserData(response.data)
+
         // Save token
-        // localStorage.setItem('user-token', token)
-        // axios.defaults.headers.common['Authorization'] = `Token ${token}`
+        localStorage.setItem('user-token', token)
+        axios.defaults.headers.common['Authorization'] = `Token ${token}`
+
         // Save data to the store(vuex)
-        // commit(AUTH_SUCCESS, {token, user})
-        resolve(response)
+        commit(AUTH_SUCCESS, {token, user})
+
+        resolve(user)
       })
       .catch(error => {
+        console.log('Signup error:', error)
         commit(AUTH_ERROR)
         reject(error.response)
       })
