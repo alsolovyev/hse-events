@@ -49,7 +49,7 @@ import AppLink from '@/components/ui/AppLink'
 import AppInput from '@/components/ui/AppInput'
 import AppButton from '@/components/ui/AppButton'
 
-import { NEW } from '@/config/users'
+// import { NEW } from '@/config/users'
 
 export default {
   name: 'Signup',
@@ -77,13 +77,13 @@ export default {
     onSubmit() {
       // Collect user information
       const credentials = {
-        ...NEW
+        // ...NEW
       }
 
       // Change error status to false
       for(let key in this.fields) {
         this.fields[key].isError = false
-        // credentials[key] = this.fields[key].value
+        credentials[key] = this.fields[key].value
       }
 
       // Create valid for django date format(YYYY-MM-DD)

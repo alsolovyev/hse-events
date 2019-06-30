@@ -49,7 +49,7 @@ import AppLink from '@/components/ui/AppLink'
 import AppInput from '@/components/ui/AppInput'
 import AppButton from '@/components/ui/AppButton'
 
-import { OLD } from '@/config/users'
+// import { OLD } from '@/config/users'
 
 export default {
   name: 'Signin',
@@ -71,12 +71,12 @@ export default {
      */
     onSubmit() {
       // Collect user information
-      const credentials = {...OLD}
+      const credentials = { }
 
       // Change error status to false
       for(let key in this.fields) {
         this.fields[key].isError = false
-        // credentials[key] = this.fields[key].value
+        credentials[key] = this.fields[key].value
       }
 
       // Request
