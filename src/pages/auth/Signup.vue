@@ -87,10 +87,11 @@ export default {
           console.log(user)
           // Redirect to user page
           // this.$router.push({ name: 'dashboard', params: {
+          this.$router.push({ name: 'dashboard', params: {
               // username: `#${user.email.split('@')[0]}`
-              // username: user.email.split('@')[0]
-            // }
-          // })
+              username: user.email.split('@')[0]
+            }
+          })
         })
         .catch(error => {
           console.log('Error', error)
