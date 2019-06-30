@@ -5,7 +5,7 @@
 /* eslint-disable */
 
 import axios from 'axios'
-import { USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './_variables'
+import { USER_AUTH, USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './_variables'
 import router from '@/router'
 import Vue from 'vue'
 import api from '@/config/api-endpoints'
@@ -25,29 +25,29 @@ const clearUserData = data => Object.keys(data).reduce((obj, key) => {
                               }, {})
 
 const state = {
-  token     : localStorage.getItem('user-token') || '',
-  authStatus: '',
-  user      : null
+  token:  localStorage.getItem('user-token') || null,
+  status: 'logged-out', // 'logged-in', 'logged-out', 'error', 'loading'
+  user:   null
 }
 
 const getters = {
   isAuthenticated: state => !!state.token,
-  authStatus:      state => state.authStatus,
+  getStatus:       state => state.status,
   getUser:         state => state.user
 }
 
 const mutations = {
-  [AUTH_REQUEST]: state => state.authStatus = 'loading',
+  [AUTH_REQUEST]: state => state.status = 'loading',
   [AUTH_SUCCESS]: (state, {token, user}) => {
-    state.authStatus = 'success'
-    state.token      = token
-    state.user       = user
+    state.status = 'logged-in'
+    state.token  = token
+    state.user   = clearUserData(user)
   },
-  [AUTH_ERROR]: state => state.authStatus = 'error',
+  [AUTH_ERROR]: state => state.status = 'error',
   [AUTH_LOGOUT]: state => {
-    state.authStatus = 'logged-out'
-    state.token      = ''
-    state.user       = null
+    state.status = 'logged-out'
+    state.token  = null
+    state.user   = null
   }
 }
 
@@ -58,7 +58,7 @@ const actions = {
       .then(response => {
         // console.log(response.data)
         const token = response.data.token,
-              user  = clearUserData(response.data)
+              user  = response.data
 
         // Save token
         localStorage.setItem('user-token', token)
@@ -106,7 +106,7 @@ const actions = {
       .then(response => {
         // console.log(response.data)
         const token = response.data.token,
-              user  = clearUserData(response.data)
+              user  = response.data
 
         // Save token
         localStorage.setItem('user-token', token)
@@ -122,6 +122,12 @@ const actions = {
         commit(AUTH_ERROR)
         reject(error.response)
       })
+  }),
+
+  [USER_AUTH]: ({commit, dispatch}) => new Promise((resolve, reject) => {
+    commit(AUTH_REQUEST)
+    // axios.get(URL)
+    resolve()
   })
 }
 

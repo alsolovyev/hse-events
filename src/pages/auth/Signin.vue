@@ -34,7 +34,7 @@
     <!-- BEGIN Button -->
     <div ref="btn">
       <app-button
-        :isLoading="$store.getters.authStatus === 'loading'"
+        :isLoading="$store.getters.getStatus === 'loading'"
         icon="enter"
         @onClick="onSubmit"/>
     </div>
