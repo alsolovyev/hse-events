@@ -88,7 +88,6 @@ export default {
       // Request
       this.$store.dispatch('USER_SIGNUP', credentials)
         .then(user => {
-          console.log(user)
           // Redirect to user page
           this.$router.push({ name: 'dashboard', params: {
               // username: `#${user.email.split('@')[0]}`
