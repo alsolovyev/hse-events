@@ -49,8 +49,6 @@ import AppLink from '@/components/ui/AppLink'
 import AppInput from '@/components/ui/AppInput'
 import AppButton from '@/components/ui/AppButton'
 
-// import { NEW } from '@/config/users'
-
 export default {
   name: 'Signup',
   data() {
@@ -76,9 +74,7 @@ export default {
      */
     onSubmit() {
       // Collect user information
-      const credentials = {
-        // ...NEW
-      }
+      const credentials = { }
 
       // Change error status to false
       for(let key in this.fields) {

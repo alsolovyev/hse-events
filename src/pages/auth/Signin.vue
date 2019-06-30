@@ -49,8 +49,6 @@ import AppLink from '@/components/ui/AppLink'
 import AppInput from '@/components/ui/AppInput'
 import AppButton from '@/components/ui/AppButton'
 
-// import { OLD } from '@/config/users'
-
 export default {
   name: 'Signin',
   data() {
