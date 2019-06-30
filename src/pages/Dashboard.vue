@@ -60,10 +60,7 @@ export default {
 
     // Get last N events
     axios.get(`${api.events}5`)
-      .then(response => {
-        console.log(response.data)
-        this.events = response.data
-      })
+      .then(response => this.events = response.data)
       .catch(error => console.log(error))
   },
   components: { UserProfile, SubNav, AppButton, EventList }
