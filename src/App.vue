@@ -32,16 +32,32 @@
 </template>
 
 <script>
+import axios from 'axios'
 import sayHello from '@/utils/sayHello'
 import AppBackground from '@/components/layout/AppBackground'
 import AppHeader from '@/components/layout/AppHeader'
 import AppFooter from '@/components/layout/AppFooter'
 import AppModal from '@/components/layout/AppModal'
 
+import { OLD } from '@/config/users'
+
 export default {
   name: 'app',
   mounted() {
     sayHello()
+  },
+  beforeCreate() {
+    /**
+     * Check if client is already authenticated
+     */
+    const token = localStorage.getItem('user-token')
+    if(token) {
+      // axios.defaults.headers.common['Authorization'] = `Token ${token}`
+      // Get user data
+      // axios get user
+      // const user = {...OLD}
+      // this.$store.commit('USER_AUTH')
+    }
   },
   components: { AppBackground, AppHeader, AppFooter, AppModal }
 }
