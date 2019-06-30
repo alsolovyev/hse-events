@@ -7,7 +7,7 @@
       <!-- Fix init active class -->
       <button class="subnav__btn"
         @click="onClick(link.to, index)"
-        :class="{ 'subnav__btn--is-active': index === 1 }"
+        :class="{ 'subnav__btn--is-active': index === 0 }"
         ref="btns">{{link.name}}</button>
     </li>
   </ul>
