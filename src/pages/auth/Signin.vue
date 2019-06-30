@@ -97,7 +97,7 @@ export default {
                   this.fields[key].isError = true
                   this.$notify({
                     type: 'error',
-                    title: `Error field: <span class="pink">${key}</span>`,
+                    title: `<span class="pink">${key}</span>`,
                     text: error.data[key][0]
                   })
                 } else {
