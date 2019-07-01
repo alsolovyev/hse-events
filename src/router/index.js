@@ -16,7 +16,7 @@ import Event from '@/pages/Event'
 import ErrorPage from '@/pages/Error'
 // END Pages
 
-const isAuth = (to, from, next) => store.getters.getStatus === 'logged-in' ? next() : next({ name: 'error' })
+const isAuth = (to, from, next) => store.getters.getStatus === 'logged-in' && store.getters.getUser.email.split('@')[0] === to.params.username ? next() : next({ name: 'error' })
 
 const router = new VueRouter({
   mode: 'history',
