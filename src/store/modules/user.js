@@ -5,7 +5,7 @@
 /* eslint-disable */
 
 import axios from 'axios'
-import { USER_AUTH, USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './_variables'
+import { USER_INIT, USER_SIGNIN, USER_LOGOUT, USER_SIGNUP, AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './_variables'
 import router from '@/router'
 import Vue from 'vue'
 import api from '@/config/api-endpoints'
@@ -124,9 +124,26 @@ const actions = {
       })
   }),
 
-  [USER_AUTH]: ({commit, dispatch}) => new Promise((resolve, reject) => {
-    commit(AUTH_REQUEST)
-    // axios.get(URL)
+  [USER_INIT]: ({commit, dispatch}) => new Promise((resolve, reject) => {
+    /** Check if user is already signed in */
+    const token = localStorage.getItem('user-token')
+    if(token) {
+      // Save token
+      localStorage.setItem('user-token', token)
+      axios.defaults.headers.common['Authorization'] = `Token ${token}`
+
+      /** Get user info from server */
+      // axios.get()
+
+      const user = {
+        first_name: 'Jane',
+        last_name: 'Rivas',
+        email: 'janerivaz@gmail.com'
+      }
+
+      // Save data to the store(vuex)
+      commit(AUTH_SUCCESS, {token, user})
+    }
     resolve()
   })
 }
