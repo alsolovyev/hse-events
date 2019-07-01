@@ -2,7 +2,7 @@
 export const SET_THEME    = 'SET_THEME'
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
 // Names for 'user' module
-export const USER_AUTH    = 'USER_AUTH'
+export const USER_INIT    = 'USER_INIT'
 export const USER_SIGNIN  = 'USER_SIGNIN'
 export const USER_SIGNUP  = 'USER_SIGNUP'
 export const USER_LOGOUT  = 'USER_LOGOUT'
