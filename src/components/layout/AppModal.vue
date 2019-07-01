@@ -138,9 +138,10 @@ export default {
       left: 50%
       transform: translate(-50%, 0)
       z-index: -1
-      font: 700 90px/.8 'Poppins', sans-serif
+      font: 900 80px/.8 'Poppins', sans-serif
       text-align: center
-      color: rgba(9, 9, 9, .5)
+      letter-spacing: -5px
+      color: rgba(9, 9, 9, .6)
       text-transform: uppercase
       pointer-events: none
       user-select: none
