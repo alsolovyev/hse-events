@@ -46,19 +46,6 @@ export default {
   mounted() {
     sayHello()
   },
-  beforeCreate() {
-    /**
-     * Check if client is already authenticated
-     */
-    const token = localStorage.getItem('user-token')
-    if(token) {
-      // axios.defaults.headers.common['Authorization'] = `Token ${token}`
-      // Get user data
-      // axios get user
-      // const user = {...OLD}
-      // this.$store.commit('USER_AUTH')
-    }
-  },
   components: { AppBackground, AppHeader, AppFooter, AppModal }
 }
 </script>

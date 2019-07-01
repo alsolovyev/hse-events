@@ -33,10 +33,15 @@ const router = new VueRouter({
   ]
 })
 
+/** Check if user is already signed in */
+const storeInit = store.dispatch('USER_INIT')
+
 router.beforeEach((to, from, next) => {
-  /** Change app theme */
-  store.commit('SET_THEME', to.meta.theme)
-  next()
+  storeInit.then(() => {
+    /** Change app theme */
+    store.commit('SET_THEME', to.meta.theme)
+    next()
+  })
 })
 
 export default router
