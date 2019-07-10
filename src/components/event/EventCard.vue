@@ -61,7 +61,7 @@ export default {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%
     box-shadow: 0 20px 30px $grey
     // border: 4px solid $grey
-    background-image: repeating-linear-gradient(45deg, rgba($black,.05), rgba($black, .05) 2px, $transparent 0, $transparent 8px)
+    background-image: repeating-linear-gradient(135deg, rgba($black,.05), rgba($black, .05) 2px, $transparent 0, $transparent 8px)
 
   &__month
     font-size: 20px

@@ -32,13 +32,13 @@ import api from '@/config/api-endpoints'
 import UserProfile from '@/components/UserProfile'
 import SubNav from '@/components/SubNav'
 import AppButton from '@/components/ui/AppButton'
-import EventList from '@/components/event/EventList'
+import UpcomingEvents from './UpcomingEvents'
 
 export default {
   name: 'Dashboard',
   data() {
     return {
-      content: EventList,
+      content: UpcomingEvents,
       events: [],
       links: [
         { name: 'Upcoming events',  to: '123' }
@@ -63,7 +63,7 @@ export default {
       .then(response => this.events = response.data)
       .catch(error => console.log(error))
   },
-  components: { UserProfile, SubNav, AppButton, EventList }
+  components: { UserProfile, SubNav, AppButton, UpcomingEvents }
 }
 </script>
 
