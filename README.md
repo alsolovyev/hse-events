@@ -6,7 +6,7 @@ Web application for attendees of events organized by the [Higher School of Econo
 
 [![HSE Events](https://capella.pics/e90af62d-19a6-4bd6-813f-f563ecc123bb.jpg)](https://dev.hes.website/)
 
-## Gettings Started
+## Getting Started
 
 ##### Project setup
 ```
