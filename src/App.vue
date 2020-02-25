@@ -58,6 +58,10 @@ export default {
   overflow-x: hidden
   min-height: 100vh
   padding: #{$padding * 3}
+  -ms-overflow-style: none
+  scrollbar-width: none
+  &::-webkit-scrollbar
+    display: none
 
   +r(700)
     padding: #{$padding * 2}
