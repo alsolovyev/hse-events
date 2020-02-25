@@ -19,7 +19,7 @@
 
     <!-- BEGIN Content -->
     <div class="block block--big">
-      <component :events="events" :is="content"></component>
+      <!-- <component :events="events" :is="content"></component> -->
     </div>
     <!-- END Content -->
   </main>
@@ -32,13 +32,13 @@ import api from '@/config/api-endpoints'
 import UserProfile from '@/components/UserProfile'
 import SubNav from '@/components/SubNav'
 import AppButton from '@/components/ui/AppButton'
-import UpcomingEvents from './UpcomingEvents'
+// import UpcomingEvents from './UpcomingEvents'
 
 export default {
   name: 'Dashboard',
   data() {
     return {
-      content: UpcomingEvents,
+      // content: UpcomingEvents,
       events: [],
       links: [
         { name: 'Upcoming events',  to: '123' }
@@ -63,7 +63,12 @@ export default {
       .then(response => this.events = response.data)
       .catch(error => console.log(error))
   },
-  components: { UserProfile, SubNav, AppButton, UpcomingEvents }
+  components: {
+    UserProfile,
+    SubNav,
+    AppButton,
+    // UpcomingEvents
+  }
 }
 </script>
 
