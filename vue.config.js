@@ -4,6 +4,7 @@ module.exports = {
 
   // specify sub-path
   // publicPath: process.env.NODE_ENV === 'production' ? '/assets/' : '/',
+  publicPath: '/hse-events/',
 
   // Import svg files inline
   chainWebpack: (config) => {
