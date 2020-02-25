@@ -20,6 +20,7 @@ const isAuth = (to, from, next) => store.getters.getStatus === 'logged-in' && st
 
 const router = new VueRouter({
   mode: 'history',
+  base: process.env.BASE_URL,
   routes: [
     { path: '/',              name: 'home',          component: Home,          meta: { theme: 'pink' } },
     { path: '/signin',        name: 'signin',        component: Signin,        meta: { theme: 'blue' } },
