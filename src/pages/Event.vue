@@ -31,7 +31,7 @@ export default {
     /**
      * Get event info from server
      */
-    const url = 'http://www.mocky.io/v2/5d0df07b3400007b00ca4aca?mocky-delay=2000ms'
+    const url = 'https://www.mocky.io/v2/5d0df07b3400007b00ca4aca?mocky-delay=2000ms'
     // BEGIN Request
     axios.get(url, {
       id: this.$route.params.id
