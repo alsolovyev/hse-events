@@ -1,0 +1,25 @@
+/*
+ * Notifications
+ */
+.noti
+  padding: 10px 16px
+  margin: 0 8px 8px
+  border-left: 2px solid $white
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8
+  +br(4)
+  font-size: 12px
+
+  .notification-title
+    margin-bottom: 12px
+    text-transform: capitalize
+
+  .notification-content
+
+  &.error
+    border-color: $pink
+
+  &.info
+    border-color: $blue
+
+  &.success
+    border-color: $lime

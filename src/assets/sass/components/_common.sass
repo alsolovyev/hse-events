@@ -1,0 +1,41 @@
+body
+  // font-family: 'Gotham Pro', 'Avenir', Helvetica, Arial, sans-serif
+  // font-family: 'Roboto Mono', monospace
+  // line-height: 1.7
+  font: normal 14px/1.7 'Roboto Mono', monospace
+  color: $black
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+::selection
+  background: $dark
+  color: $white
+
+hr
+  border: none
+  height: 1px
+  margin: #{$padding + 10} 0
+  background-image: linear-gradient(90deg, $transparent, rgba($black, .2), $transparent)
+
+// Colorize text
+.pink
+  color: $pink
+  &::after
+    color: $pink
+
+.blue
+  color: $blue
+  &::after
+    color: $blue !important
+
+.lime
+  color: $lime
+
+// Reveal text animation
+.r-text
+  display: inline-block !important
+
+// Content wrapper
+.main
+  flex: 1 1 auto
+  padding: #{$padding * 2} 0
