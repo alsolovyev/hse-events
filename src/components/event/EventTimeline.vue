@@ -14,7 +14,7 @@
       <!-- END Event title -->
 
       <!-- BEGIN Event date -->
-      <p class="timeline__date">{{ event.date }}</p>
+      <p class="timeline__date">{{ date }}</p>
       <!-- END Event date -->
 
       <ul v-if="event.polls.length !== 0">
@@ -33,8 +33,15 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'EventTimeline',
+  data() {
+    return {
+      date: moment().format('MMM Do')
+    }
+  },
   props: {
     events: {
       type: Array,
@@ -101,7 +108,7 @@ export default {
       text-decoration: underline
 
   &__date
-    margin: 10px 0 25px 0
+    margin: 5px 0 25px 0
     font-size: 10px
     line-height: 1
     transition: color .3s
