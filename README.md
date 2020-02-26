@@ -2,7 +2,7 @@
 
 Web application for attendees of events organized by the [Higher School of Economics](https://spb.hse.ru/en/) and their partners. The app that helps you to learn about upcoming events, stay in touch with speakers, participate in surveys, and find out their results.
 
-[Official website](https://hes.website)
+[Official website](https://hes.website)  
 [Overview version](https://alsolovyev.github.ie-events)
 
 [![HSE Events](https://habrastorage.org/webt/q7/ho/mv/q7homvwdwfqwicprga5h1hntpqm.jpeg)](https://alsolovyev.github.io/hse-events/)
